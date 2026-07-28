@@ -7,16 +7,16 @@
 
 /* ── TOKENS ── */
 :root {
-  --black:        #0A0906;
-  --dark-1:       #111009;
-  --dark-2:       #1A1810;
-  --dark-3:       #242118;
-  --dark-4:       #2E2B20;
-  --gold:         #C9A96E;
+  --black:        #f7f3ED; /*FOND PAGES  beige chaud*/
+  --dark-1:       #f0ebe2; /*Fond sections  alternées beige plus soutenu*/
+  --dark-2:       #FAFFFF; /*Fond cartes  blanc*/
+  --dark-3:       #ede7dc; /*Fond texte  sombre*/
+  --dark-4:       #1b2b4b;
+  --gold:         #b8905A;
   --gold-light:   #E2C898;
   --gold-dim:     rgba(201,169,110,.15);
   --gold-border:  rgba(201,169,110,.25);
-  --ivory:        #F5F0E8;
+  --ivory:        #1e1a14;
   --ivory-70:     rgba(245,240,232,.7);
   --ivory-40:     rgba(245,240,232,.4);
   --ivory-10:     rgba(245,240,232,.07);
@@ -32,6 +32,8 @@
   --max-w:      1160px;
   --ease:       cubic-bezier(.16,1,.3,1);
 }
+
+
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
