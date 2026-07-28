@@ -1,0 +1,4 @@
+.vscode/sftp.json
+*.log
+.DS_Store
+Thumbs.db
