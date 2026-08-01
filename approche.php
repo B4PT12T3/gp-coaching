@@ -4,7 +4,7 @@
 <section class="approach-hero" style="padding-bottom:var(--section-py)">
   <div class="approach-grid container">
 
-    <div class="approach-photo fade-up">
+    <div class="approach-photo hv-image fade-up">
       <img
         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop&crop=faces"
         alt="Gilles, fondateur de GP Coaching"
@@ -31,28 +31,28 @@
 
 
 <!-- ══ MA PHILOSOPHIE ══ -->
-<section style="background:var(--dark-1);padding:var(--section-py) var(--gutter)">
+<section style="background:var(--bg-alt);padding:var(--section-py) var(--gutter)">
   <div class="container text-center">
     <span class="label fade-up">Ma philosophie</span>
     <h2 class="fade-up delay-1">Quatre piliers pour avancer</h2>
     <div class="philo-grid">
       <div class="philo-step fade-up">
-        <div class="philo-icon">🔍</div>
+        <div class="philo-icon hv-glow">🔍</div>
         <h4>Comprendre avant d'agir</h4>
         <p>Prendre le temps de comprendre la situation avant de s'engager dans l'action.</p>
       </div>
       <div class="philo-step fade-up delay-1">
-        <div class="philo-icon">📋</div>
+        <div class="philo-icon hv-glow">📋</div>
         <h4>Clarifier avant de décider</h4>
         <p>Mettre de l'ordre dans ses pensées pour décider avec discernement.</p>
       </div>
       <div class="philo-step fade-up delay-2">
-        <div class="philo-icon">🎯</div>
+        <div class="philo-icon hv-glow">🎯</div>
         <h4>Aligner pour avancer</h4>
         <p>Mettre en cohérence ses valeurs, ses objectifs et ses actions.</p>
       </div>
       <div class="philo-step fade-up delay-3">
-        <div class="philo-icon">🌱</div>
+        <div class="philo-icon hv-glow">🌱</div>
         <h4>Évoluer pour durer</h4>
         <p>S'inscrire dans une croissance durable et un développement continu.</p>
       </div>
@@ -62,17 +62,17 @@
 
 
 <!-- ══ MISSION / CONVICTION ══ -->
-<section style="background:var(--black);padding:var(--section-py) var(--gutter)">
+<section style="background:var(--bg-base);padding:var(--section-py) var(--gutter)">
   <div class="container">
     <div class="mission-grid">
-      <div class="mission-card fade-up">
+      <div class="mission-card hv-lift fade-up">
         <h4>Ma Mission</h4>
-        <h3 style="color:var(--ivory);margin-bottom:1rem">Accompagner les personnes dans les périodes clés</h3>
+        <h3 style="margin-bottom:1rem">Accompagner les personnes dans les périodes clés</h3>
         <p>Accompagner les personnes, les entrepreneurs, les dirigeants et les organisations dans les périodes de transition, de développement ou de transformation pour leur permettre de retrouver clarté, équilibre et capacité d'action durable.</p>
       </div>
-      <div class="mission-card fade-up delay-1">
+      <div class="mission-card hv-lift fade-up delay-1">
         <h4>Ma Conviction</h4>
-        <h3 style="color:var(--ivory);margin-bottom:1rem">Les ressources sont déjà en vous</h3>
+        <h3 style="margin-bottom:1rem">Les ressources sont déjà en vous</h3>
         <p>Chaque personne possède déjà en elle les ressources nécessaires pour évoluer. Mon rôle est de créer les conditions qui lui permettront de les révéler et de les mobiliser.</p>
       </div>
     </div>

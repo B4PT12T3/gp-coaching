@@ -46,7 +46,7 @@ function nav_active(string $file): string {
   <meta property="og:description" content="<?= htmlspecialchars($desc) ?>"/>
   <meta property="og:type"        content="website"/>
   <title><?= htmlspecialchars($title) ?></title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>"/>
 </head>
 <body class="page-<?= str_replace('.php', '', $current) ?>">
 

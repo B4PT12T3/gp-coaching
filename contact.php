@@ -42,7 +42,7 @@ function old(string $key, array $data): string {
         <h2>Mes coordonnées</h2>
         <div class="contact-info-list">
 
-          <div class="contact-info-item">
+          <div class="contact-info-item hv-border">
             <div class="contact-info-icon">📞</div>
             <div class="contact-info-text">
               <strong><a href="tel:+33672724444" style="color:inherit">06 72 72 44 44</a></strong>
@@ -50,7 +50,7 @@ function old(string $key, array $data): string {
             </div>
           </div>
 
-          <div class="contact-info-item">
+          <div class="contact-info-item hv-border">
             <div class="contact-info-icon">✉️</div>
             <div class="contact-info-text">
               <strong><a href="mailto:GP2coaching@gmail.com" style="color:inherit">GP2coaching@gmail.com</a></strong>
@@ -58,7 +58,7 @@ function old(string $key, array $data): string {
             </div>
           </div>
 
-          <div class="contact-info-item">
+          <div class="contact-info-item hv-border">
             <div class="contact-info-icon">📍</div>
             <div class="contact-info-text">
               <strong>Béthune et sa région</strong>
@@ -66,7 +66,7 @@ function old(string $key, array $data): string {
             </div>
           </div>
 
-          <div class="contact-info-item">
+          <div class="contact-info-item hv-border">
             <div class="contact-info-icon">🎥</div>
             <div class="contact-info-text">
               <strong>En présentiel et en visioconférence</strong>
@@ -77,7 +77,7 @@ function old(string $key, array $data): string {
         </div>
       </div>
 
-      <div class="contact-photo fade-up delay-1">
+      <div class="contact-photo hv-image fade-up delay-1">
         <img
           src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=80&auto=format&fit=crop"
           alt="Cabinet GP Coaching"

@@ -45,45 +45,45 @@
 
     <div class="univers-grid">
 
-      <div class="univers-card fade-up">
-        <div class="univers-card-img">
+      <div class="univers-card hv-lift fade-up">
+        <div class="univers-card-img hv-image">
           <img
             src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&auto=format&fit=crop"
             alt="Équilibre et développement personnel"
           />
         </div>
         <div class="univers-card-body">
-          <div class="univers-icon icon-sage">🌿</div>
+          <div class="univers-icon icon-sage hv-glow">🌿</div>
           <h3>Équilibre &amp; Développement personnel</h3>
           <p>Retrouver confiance, sérénité et équilibre pour avancer en harmonie avec soi-même et donner le meilleur de soi.</p>
           <a class="link-arrow" href="accompagnement.php#equilibre">En savoir plus <span>→</span></a>
         </div>
       </div>
 
-      <div class="univers-card fade-up delay-1">
-        <div class="univers-card-img">
+      <div class="univers-card hv-lift fade-up delay-1">
+        <div class="univers-card-img hv-image">
           <img
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80&auto=format&fit=crop"
             alt="Leadership et performance en entreprise"
           />
         </div>
         <div class="univers-card-body">
-          <div class="univers-icon icon-dark">👥</div>
+          <div class="univers-icon icon-dark hv-glow">👥</div>
           <h3>Leadership &amp; Performance</h3>
           <p>Développer votre leadership, renforcer votre posture et améliorer votre performance pour atteindre durablement vos objectifs professionnels.</p>
           <a class="link-arrow" href="accompagnement.php#leadership">En savoir plus <span>→</span></a>
         </div>
       </div>
 
-      <div class="univers-card fade-up delay-2">
-        <div class="univers-card-img">
+      <div class="univers-card hv-lift fade-up delay-2">
+        <div class="univers-card-img hv-image">
           <img
             src="https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=80&auto=format&fit=crop"
             alt="Accompagnement Signature premium"
           />
         </div>
         <div class="univers-card-body">
-          <div class="univers-icon icon-gold">⭐</div>
+          <div class="univers-icon icon-gold hv-glow">⭐</div>
           <h3>Signature</h3>
           <p>Des accompagnements premium et sur-mesure pour les entrepreneurs, dirigeants et professionnels qui souhaitent construire l'avenir avec vision, sens et impact.</p>
           <a class="link-arrow" href="accompagnement.php#signature">En savoir plus <span>→</span></a>
@@ -103,22 +103,22 @@
       <h2 class="fade-up delay-1">Une méthode, des résultats</h2>
     </div>
     <div class="why-grid">
-      <div class="why-card fade-up">
+      <div class="why-card hv-lift-sm fade-up">
         <div class="why-icon">🤝</div>
         <h4>Approche humaine et personnalisée</h4>
         <p>Chaque accompagnement est unique, construit autour de vous et de vos objectifs spécifiques.</p>
       </div>
-      <div class="why-card fade-up delay-1">
+      <div class="why-card hv-lift-sm fade-up delay-1">
         <div class="why-icon">📋</div>
         <h4>Méthode structurée et éprouvée</h4>
         <p>La méthode GPACE : un cadre clair pour avancer avec confiance à chaque étape.</p>
       </div>
-      <div class="why-card fade-up delay-2">
+      <div class="why-card hv-lift-sm fade-up delay-2">
         <div class="why-icon">💚</div>
         <h4>Écoute, exigence et bienveillance</h4>
         <p>Un espace de confiance pour explorer, décider et agir — sans jugement.</p>
       </div>
-      <div class="why-card fade-up delay-3">
+      <div class="why-card hv-lift-sm fade-up delay-3">
         <div class="why-icon">📈</div>
         <h4>Orientation résultats et développement durable</h4>
         <p>Des transformations concrètes qui s'inscrivent dans la durée, pas des effets ponctuels.</p>
