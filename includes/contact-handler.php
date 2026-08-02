@@ -12,8 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ── CONFIG ──
-define('DESTINATAIRE', 'GP2coaching@gmail.com');
-define('NOM_SITE',     'GP Coaching');
+define('DESTINATAIRE',  'gilles@gpcoaching.fr');   // reçoit + redirige vers Gmail
+define('COPIE',         'gp2coach@gmail.com');      // copie directe sur Gmail
+define('EXPEDITEUR',    'mail_php@gpcoaching.fr');  // adresse système LWS
+define('NOM_SITE',      'GP Coaching');
 
 // ── CSRF basique (token en session) ──
 session_start();
@@ -76,8 +78,9 @@ $corps .= str_repeat('─', 50) . "\n";
 $corps .= "Envoyé le : " . date('d/m/Y à H:i') . "\n";
 $corps .= "IP       : " . $_SERVER['REMOTE_ADDR'] . "\n";
 
-$headers  = "From: " . NOM_SITE . " <noreply@gp-coaching.fr>\r\n";
+$headers  = "From: " . NOM_SITE . " <" . EXPEDITEUR . ">\r\n";
 $headers .= "Reply-To: " . $nom . " <" . $email . ">\r\n";
+$headers .= "Cc: " . COPIE . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
