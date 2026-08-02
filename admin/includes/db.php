@@ -6,7 +6,7 @@
  * ⚠️  Remplir les constantes avant déploiement
  */
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', '91.216.107.219');
 define('DB_NAME', 'gpcoa2829021');       // ← ex: client_gpcoaching
 define('DB_USER', 'gpcoa2829021');      // ← identifiant MySQL LWS
 define('DB_PASS', 'fz8rzsxv6q');  // ← mot de passe MySQL LWS
