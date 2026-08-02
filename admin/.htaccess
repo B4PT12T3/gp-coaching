@@ -1,0 +1,9 @@
+# GP Coaching — Protection dossier admin
+# Refuser l'accès direct aux fichiers includes
+<FilesMatch "^(db|auth|save|header|footer)\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher le listage du répertoire
+Options -Indexes

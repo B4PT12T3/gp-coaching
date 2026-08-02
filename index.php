@@ -1,23 +1,22 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/content.php';
+include 'includes/header.php';
+?>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-img">
-    <img
-      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop"
-      alt="Homme au sommet d'une montagne au lever du soleil"
-      loading="eager"
-    />
+    <?= img('accueil', 'hero_image',
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop',
+        'GP Coaching — coaching de carrière') ?>
   </div>
   <div class="hero-content">
     <span class="label fade-up">Coaching de carrière &amp; de vie</span>
     <h1 class="fade-up delay-1">
-      Retrouvez la <span class="highlight">clarté</span><br>
-      pour avancer<br>
-      avec <em>confiance.</em>
+      <?= nl2br(c('accueil', 'hero_titre', "Retrouvez la clarté pour avancer avec confiance.")) ?>
     </h1>
     <p class="hero-sub fade-up delay-2">
-      J'accompagne les personnes, les entrepreneurs, les dirigeants et les organisations à retrouver la clarté, de l'équilibre et la capacité d'agir durablement.
+      <?= c('accueil', 'hero_sous_titre', "J'accompagne les personnes, les entrepreneurs, les dirigeants et les organisations à retrouver la clarté, de l'équilibre et la capacité d'agir durablement.") ?>
     </p>
     <div class="hero-cta fade-up delay-3">
       <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
@@ -25,15 +24,15 @@
   </div>
 </section>
 
-
 <!-- ══ CITATION ══ -->
 <div class="quote-band">
   <p class="quote-text fade-up">
-    Construire des personnes solides pour développer des projets durables.
+    <?= c('accueil', 'citation_texte', 'Construire des personnes solides pour développer des projets durables.') ?>
   </p>
-  <p class="quote-author fade-up delay-1">— Gilles, fondateur de GP Coaching</p>
+  <p class="quote-author fade-up delay-1">
+    <?= c('accueil', 'citation_auteur', '— Gilles, fondateur de GP Coaching') ?>
+  </p>
 </div>
-
 
 <!-- ══ TROIS UNIVERS ══ -->
 <section class="univers-section">
@@ -42,58 +41,37 @@
       <span class="label fade-up">Trois univers d'accompagnement</span>
       <h2 class="fade-up delay-1">Comment puis-je vous aider ?</h2>
     </div>
-
     <div class="univers-grid">
 
-      <div class="univers-card hv-lift fade-up">
+      <?php
+      $univers = [
+        1 => ['icon' => '🌿', 'icon_cls' => 'icon-sage', 'link' => 'equilibre',   'delay' => ''],
+        2 => ['icon' => '👥', 'icon_cls' => 'icon-dark', 'link' => 'leadership',  'delay' => ' delay-1'],
+        3 => ['icon' => '⭐', 'icon_cls' => 'icon-gold', 'link' => 'signature',   'delay' => ' delay-2'],
+      ];
+      foreach ($univers as $n => $u):
+        $default_imgs = [
+          1 => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80',
+          2 => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80',
+          3 => 'https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=80',
+        ];
+      ?>
+      <div class="univers-card hv-lift fade-up<?= $u['delay'] ?>">
         <div class="univers-card-img hv-image">
-          <img
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&auto=format&fit=crop"
-            alt="Équilibre et développement personnel"
-          />
+          <?= img('accueil', "univers{$n}_image", $default_imgs[$n], c('accueil', "univers{$n}_titre", "Univers $n")) ?>
         </div>
         <div class="univers-card-body">
-          <div class="univers-icon icon-sage hv-glow">🌿</div>
-          <h3>Équilibre &amp; Développement personnel</h3>
-          <p>Retrouver confiance, sérénité et équilibre pour avancer en harmonie avec soi-même et donner le meilleur de soi.</p>
-          <a class="link-arrow" href="accompagnement.php#equilibre">En savoir plus <span>→</span></a>
+          <div class="univers-icon <?= $u['icon_cls'] ?> hv-glow"><?= $u['icon'] ?></div>
+          <h3><?= c('accueil', "univers{$n}_titre", "Univers $n") ?></h3>
+          <p><?= c('accueil', "univers{$n}_texte", '') ?></p>
+          <a class="link-arrow" href="accompagnement.php#<?= $u['link'] ?>">En savoir plus <span>→</span></a>
         </div>
       </div>
-
-      <div class="univers-card hv-lift fade-up delay-1">
-        <div class="univers-card-img hv-image">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80&auto=format&fit=crop"
-            alt="Leadership et performance en entreprise"
-          />
-        </div>
-        <div class="univers-card-body">
-          <div class="univers-icon icon-dark hv-glow">👥</div>
-          <h3>Leadership &amp; Performance</h3>
-          <p>Développer votre leadership, renforcer votre posture et améliorer votre performance pour atteindre durablement vos objectifs professionnels.</p>
-          <a class="link-arrow" href="accompagnement.php#leadership">En savoir plus <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="univers-card hv-lift fade-up delay-2">
-        <div class="univers-card-img hv-image">
-          <img
-            src="https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=80&auto=format&fit=crop"
-            alt="Accompagnement Signature premium"
-          />
-        </div>
-        <div class="univers-card-body">
-          <div class="univers-icon icon-gold hv-glow">⭐</div>
-          <h3>Signature</h3>
-          <p>Des accompagnements premium et sur-mesure pour les entrepreneurs, dirigeants et professionnels qui souhaitent construire l'avenir avec vision, sens et impact.</p>
-          <a class="link-arrow" href="accompagnement.php#signature">En savoir plus <span>→</span></a>
-        </div>
-      </div>
+      <?php endforeach; ?>
 
     </div>
   </div>
 </section>
-
 
 <!-- ══ POURQUOI GP COACHING ══ -->
 <section class="why-section">
@@ -127,7 +105,6 @@
   </div>
 </section>
 
-
 <!-- ══ CTA FINAL ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
@@ -136,7 +113,7 @@
     <div class="divider center"></div>
     <p>Un premier échange pour faire le point sur votre situation et vos objectifs — sans engagement.</p>
     <div class="final-cta-actions">
-      <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
+      <button class="btn btn-navy" onclick="openBooking()">Prendre rendez-vous</button>
       <a class="btn btn-outline" href="approche.php">Découvrir mon approche</a>
     </div>
   </div>
