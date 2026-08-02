@@ -11,6 +11,7 @@ $admin_nav = [
   'pages/accompagnement.php' => ['icon' => '◇', 'label' => 'Accompagnement'],
   'pages/contact.php'  => ['icon' => '✉', 'label' => 'Contact & Coordonnées'],
   'upload.php'         => ['icon' => '⊕', 'label' => 'Images'],
+  'pages/global.php'   => ['icon' => '◈', 'label' => 'Réseaux & Paramètres'],
 ];
 // Déterminer la clé active
 $active_key = '';

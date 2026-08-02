@@ -43,6 +43,12 @@ $recent = db()->query("
     <span class="tile-title">Contact & Coordonnées</span>
     <span class="tile-desc">Téléphone, email, adresse, photo cabinet</span>
   </a>
+  <a class="tile" href="pages/global.php">
+    <span class="tile-icon">◈</span>
+    <span class="tile-label">Global</span>
+    <span class="tile-title">Réseaux sociaux &amp; Paramètres</span>
+    <span class="tile-desc">LinkedIn, Facebook, Instagram, YouTube, Calendly, copyright</span>
+  </a>
 </div>
 
 <?php if (!empty($recent)): ?>

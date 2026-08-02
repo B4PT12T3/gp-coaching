@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── BOOKING ── */
   window.openBooking = () => {
-    // 👉 Remplacer par ton vrai lien Calendly
-    window.open('https://calendly.com/', '_blank');
+    const url = window._calendlyUrl || 'https://calendly.com/';
+    window.open(url, '_blank');
   };
 
 });

@@ -72,8 +72,21 @@ function nav_active(string $file): string {
   </div>
 
   <div class="nav-social">
-    <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
-    <a href="#" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+    <?php
+    if (!function_exists('content')) require_once __DIR__ . '/content.php';
+    $nav_socials = [
+        ['url' => content('global','social_linkedin',''),  'label' => 'LinkedIn',  'icon' => 'in'],
+        ['url' => content('global','social_facebook',''),  'label' => 'Facebook',  'icon' => 'f'],
+        ['url' => content('global','social_instagram',''), 'label' => 'Instagram', 'icon' => 'ig'],
+        ['url' => content('global','social_youtube',''),   'label' => 'YouTube',   'icon' => 'yt'],
+    ];
+    foreach ($nav_socials as $s):
+        if (empty($s['url'])) continue;
+    ?>
+      <a href="<?= htmlspecialchars($s['url']) ?>"
+         aria-label="<?= $s['label'] ?>"
+         target="_blank" rel="noopener noreferrer"><?= $s['icon'] ?></a>
+    <?php endforeach; ?>
   </div>
 
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Ouvrir le menu">
@@ -89,4 +102,7 @@ function nav_active(string $file): string {
   <a href="accompagnement.php">Accompagnement</a>
   <a href="contact.php">Contact</a>
   <button onclick="openBooking()">Prendre rendez-vous</button>
+  <?php foreach ($nav_socials as $s): if (empty($s['url'])) continue; ?>
+    <a href="<?= htmlspecialchars($s['url']) ?>" target="_blank" rel="noopener noreferrer"><?= $s['label'] ?></a>
+  <?php endforeach; ?>
 </div>
