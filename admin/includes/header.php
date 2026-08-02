@@ -551,7 +551,7 @@ foreach (array_keys($admin_nav) as $key) {
     <nav class="sidebar-nav">
       <?php foreach ($admin_nav as $href => $item): ?>
         <?php $is_active = ($active_key === $href); ?>
-        <a href="<?= $href === 'index.php' ? '../index.php' : '../' . $href ?>"
+        <a href="<?= $href === 'index.php' ? '../index.php' : '../admin/' . $href ?>"
           class="<?= $is_active ? 'active' : '' ?>">
           <span class="sidebar-nav-icon"><?= $item['icon'] ?></span>
           <?= $item['label'] ?>
