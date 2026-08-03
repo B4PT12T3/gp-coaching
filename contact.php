@@ -2,10 +2,104 @@
 session_start();
 require_once 'includes/content.php';
 
+// Générer token CSRF
 if (empty($_SESSION['csrf_token'])) {
   $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
+// ── TRAITEMENT DU FORMULAIRE (intégré, même fichier = même session) ──
+// DEBUG TEMPORAIRE — supprimer après test
+if (isset($_GET['debug'])) {
+  echo '<pre style="background:#fff;padding:1rem;margin:1rem;border-radius:4px">';
+  echo "METHOD : " . $_SERVER['REQUEST_METHOD'] . "
+";
+  echo "PHP_SELF : " . $_SERVER['PHP_SELF'] . "
+";
+  echo "POST : ";
+  print_r($_POST);
+  echo "SESSION : ";
+  print_r($_SESSION);
+  echo '</pre>';
+  exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  // CSRF
+  if (
+    empty($_POST['csrf_token']) ||
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+  ) {
+    $_SESSION['form_error'] = 'Token de sécurité invalide. Veuillez réessayer.';
+    header('Location: contact.php');
+    exit;
+  }
+
+  // Honeypot anti-spam
+  if (!empty($_POST['website'])) {
+    header('Location: contact.php?sent=1');
+    exit;
+  }
+
+  // Rate limiting (1 envoi / 60s par IP)
+  $ip_key = 'last_contact_' . md5($_SERVER['REMOTE_ADDR']);
+  if (isset($_SESSION[$ip_key]) && (time() - $_SESSION[$ip_key]) < 60) {
+    $_SESSION['form_error'] = 'Merci de patienter avant de renvoyer un message.';
+    header('Location: contact.php');
+    exit;
+  }
+
+  // Validation
+  $nom       = trim(strip_tags($_POST['nom']       ?? ''));
+  $email     = trim(strip_tags($_POST['email']     ?? ''));
+  $telephone = trim(strip_tags($_POST['telephone'] ?? ''));
+  $message   = trim(strip_tags($_POST['message']   ?? ''));
+
+  $errors = [];
+  if (mb_strlen($nom) < 2)                        $errors[] = 'Veuillez indiquer votre nom et prénom.';
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "L'adresse email n'est pas valide.";
+  if (mb_strlen($message) < 10)                   $errors[] = 'Votre message est trop court.';
+
+  if (!empty($errors)) {
+    $_SESSION['form_errors'] = $errors;
+    $_SESSION['form_data']   = compact('nom', 'email', 'telephone', 'message');
+    header('Location: contact.php#contact-form');
+    exit;
+  }
+
+  // Envoi email
+  $sujet  = '[GP Coaching] Nouveau message de ' . $nom;
+  $corps  = "Nouveau message reçu depuis le site GP Coaching\n";
+  $corps .= str_repeat('─', 50) . "\n\n";
+  $corps .= "Nom       : $nom\n";
+  $corps .= "Email     : $email\n";
+  $corps .= "Téléphone : " . ($telephone ?: 'Non renseigné') . "\n\n";
+  $corps .= "Message :\n$message\n\n";
+  $corps .= str_repeat('─', 50) . "\n";
+  $corps .= "Envoyé le : " . date('d/m/Y à H:i') . "\n";
+
+  $headers  = "From: GP Coaching <mail_php@gpcoaching.fr>\r\n";
+  $headers .= "Reply-To: $nom <$email>\r\n";
+  $headers .= "Cc: gp2coach@gmail.com\r\n";
+  $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+  $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+
+  $envoye = mail('gilles@gpcoaching.fr', $sujet, $corps, $headers);
+
+  if ($envoye) {
+    $_SESSION[$ip_key] = time();
+    unset($_SESSION['form_data'], $_SESSION['form_errors']);
+    // Regénérer le token après envoi réussi
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    header('Location: contact.php?sent=1');
+  } else {
+    $_SESSION['form_error'] = 'Une erreur est survenue. Veuillez réessayer ou me contacter par téléphone.';
+    header('Location: contact.php#contact-form');
+  }
+  exit;
+}
+
+// ── LECTURE SESSION après redirect ──
 $sent        = isset($_GET['sent']);
 $form_errors = $_SESSION['form_errors'] ?? [];
 $form_error  = $_SESSION['form_error']  ?? '';
@@ -30,6 +124,7 @@ function old(string $key, array $data): string
 <section class="contact-layout">
   <div class="contact-grid">
 
+    <!-- GAUCHE : coordonnées + photo -->
     <div>
       <div class="contact-info fade-up">
         <h2>Mes coordonnées</h2>
@@ -51,8 +146,8 @@ function old(string $key, array $data): string
             <div class="contact-info-icon">✉️</div>
             <div class="contact-info-text">
               <strong>
-                <a href="mailto:<?= c('contact', 'email', 'GP2coaching@gmail.com') ?>" style="color:inherit">
-                  <?= c('contact', 'email', 'GP2coaching@gmail.com') ?>
+                <a href="mailto:<?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>" style="color:inherit">
+                  <?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>
                 </a>
               </strong>
               <span>Réponse sous 24h</span>
@@ -88,7 +183,9 @@ function old(string $key, array $data): string
       </div>
     </div>
 
+    <!-- DROITE : formulaire + RDV -->
     <div>
+
       <?php if ($sent): ?>
         <div class="form-success fade-up">
           <div class="form-success-icon">✓</div>
@@ -96,42 +193,61 @@ function old(string $key, array $data): string
           <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais, généralement sous 24h.</p>
           <a class="btn btn-outline" href="index.php" style="margin-top:1.5rem">Retour à l'accueil</a>
         </div>
+
       <?php else: ?>
+
         <div class="contact-form-wrap fade-up delay-1" id="contact-form">
           <h2>Écrivez-moi</h2>
 
           <?php if ($form_error): ?>
             <div class="form-alert form-alert-error"><?= htmlspecialchars($form_error) ?></div>
           <?php endif; ?>
+
           <?php if (!empty($form_errors)): ?>
             <div class="form-alert form-alert-error">
               <ul><?php foreach ($form_errors as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul>
             </div>
           <?php endif; ?>
 
-          <form class="contact-form" method="POST" action="contact.php" novalidate>
+          <!-- Action = contact.php lui-même, même session garantie -->
+          <form class="contact-form" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" novalidate>
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
+            <!-- Honeypot -->
             <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
 
             <div class="form-group">
               <label for="nom">Nom et prénom <span style="color:var(--gold)">*</span></label>
-              <input type="text" id="nom" name="nom" placeholder="Votre nom complet" value="<?= old('nom', $form_data) ?>" required autocomplete="name" />
+              <input type="text" id="nom" name="nom"
+                placeholder="Votre nom complet"
+                value="<?= old('nom', $form_data) ?>"
+                required autocomplete="name" />
             </div>
             <div class="form-group">
-              <label for="email">Email <span style="color:var(--gold)">*</span></label>
-              <input type="email" id="email" name="email" placeholder="votre@email.com" value="<?= old('email', $form_data) ?>" required autocomplete="email" />
+              <label for="email_contact">Email <span style="color:var(--gold)">*</span></label>
+              <input type="email" id="email_contact" name="email"
+                placeholder="votre@email.com"
+                value="<?= old('email', $form_data) ?>"
+                required autocomplete="email" />
             </div>
             <div class="form-group">
               <label for="telephone">Téléphone</label>
-              <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" value="<?= old('telephone', $form_data) ?>" autocomplete="tel" />
+              <input type="tel" id="telephone" name="telephone"
+                placeholder="06 XX XX XX XX"
+                value="<?= old('telephone', $form_data) ?>"
+                autocomplete="tel" />
             </div>
             <div class="form-group">
               <label for="message">Votre message <span style="color:var(--gold)">*</span></label>
-              <textarea id="message" name="message" placeholder="Décrivez votre situation ou votre besoin..." required><?= old('message', $form_data) ?></textarea>
+              <textarea id="message" name="message"
+                placeholder="Décrivez votre situation ou votre besoin..."
+                required><?= old('message', $form_data) ?></textarea>
             </div>
-            <button class="btn btn-navy" type="submit" style="width:100%;justify-content:center">Envoyer</button>
+            <button class="btn btn-navy" type="submit" style="width:100%;justify-content:center">
+              Envoyer
+            </button>
           </form>
         </div>
+
       <?php endif; ?>
 
       <div class="rdv-box fade-up delay-2">
@@ -139,8 +255,8 @@ function old(string $key, array $data): string
         <p>Un premier échange pour faire le point sur votre situation et vos objectifs.</p>
         <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
