@@ -550,22 +550,32 @@ foreach (array_keys($admin_nav) as $key) {
     </div>
 
     <nav class="sidebar-nav">
+      <?php
+      // Calcul du chemin racine basé sur la profondeur réelle du fichier courant
+      // admin/index.php       → depth 1 → ../
+      // admin/pages/xxxx.php  → depth 2 → ../../
+      $script_path = str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']);
+      $admin_pos   = strpos($script_path, '/admin/');
+      $after_admin = $admin_pos !== false ? substr($script_path, $admin_pos + 7) : '';
+      $depth       = substr_count($after_admin, '/');
+      $root        = str_repeat('../', $depth + 1);
+      ?>
       <?php foreach ($admin_nav as $href => $item): ?>
         <?php $is_active = ($active_key === $href); ?>
-        <a href="<?= BASE_URL ?><?= $href ?>"
+        <a href="<?= $root ?>admin/<?= $href ?>"
           class="<?= $is_active ? 'active' : '' ?>">
           <span class="sidebar-nav-icon"><?= $item['icon'] ?></span>
           <?= $item['label'] ?>
         </a>
       <?php endforeach; ?>
       <div class="sidebar-sep"></div>
-      <a href="<?= BASE_URL ?>index.php" target="_blank">
+      <a href="<?= $root ?>index.php" target="_blank">
         <span class="sidebar-nav-icon">↗</span> Voir le site
       </a>
     </nav>
 
     <div class="sidebar-footer">
-      <a href="<?= BASE_URL ?>admin/logout.php">
+      <a href="<?= $root ?>admin/logout.php">
         <span>⏻</span> Déconnexion
       </a>
     </div>
@@ -576,6 +586,6 @@ foreach (array_keys($admin_nav) as $key) {
       <div class="topbar-title">
         Connecté en tant que <strong><?= htmlspecialchars($_SESSION['gp_admin_user'] ?? 'Admin') ?></strong>
       </div>
-      <a class="topbar-view" href="<?= BASE_URL ?>index.php" target="_blank">↗ Voir le site</a>
+      <a class="topbar-view" href="<?= $root ?>index.php" target="_blank">↗ Voir le site</a>
     </div>
     <div class="content">
