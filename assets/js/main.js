@@ -59,14 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 
   /* ── CONTACT FORM ── */
+  // Feedback visuel pendant l'envoi (sans bloquer le POST PHP)
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', e => {
-    e.preventDefault();
+  form?.addEventListener('submit', () => {
     const btn = form.querySelector('[type="submit"]');
-    btn.textContent = 'Message envoyé ✓';
-    btn.disabled = true;
-    btn.style.background = '#4A6741';
-    btn.style.color = '#fff';
+    if (btn) {
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+    }
+    // Pas de e.preventDefault() — le formulaire se soumet normalement vers PHP
   });
 
   /* ── BOOKING ── */
