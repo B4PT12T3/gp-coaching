@@ -3,7 +3,7 @@ session_start();
 require_once 'includes/content.php';
 
 if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 $sent        = isset($_GET['sent']);
@@ -12,8 +12,9 @@ $form_error  = $_SESSION['form_error']  ?? '';
 $form_data   = $_SESSION['form_data']   ?? [];
 unset($_SESSION['form_errors'], $_SESSION['form_error'], $_SESSION['form_data']);
 
-function old(string $key, array $data): string {
-    return htmlspecialchars($data[$key] ?? '');
+function old(string $key, array $data): string
+{
+  return htmlspecialchars($data[$key] ?? '');
 }
 ?>
 <?php include 'includes/header.php'; ?>
@@ -38,7 +39,7 @@ function old(string $key, array $data): string {
             <div class="contact-info-icon">📞</div>
             <div class="contact-info-text">
               <strong>
-                <a href="tel:+33<?= preg_replace('/\D/', '', c('contact','telephone','0672724444')) ?>" style="color:inherit">
+                <a href="tel:+33<?= preg_replace('/\D/', '', c('contact', 'telephone', '0672724444')) ?>" style="color:inherit">
                   <?= c('contact', 'telephone', '06 72 72 44 44') ?>
                 </a>
               </strong>
@@ -50,7 +51,7 @@ function old(string $key, array $data): string {
             <div class="contact-info-icon">✉️</div>
             <div class="contact-info-text">
               <strong>
-                <a href="mailto:<?= c('contact','email','GP2coaching@gmail.com') ?>" style="color:inherit">
+                <a href="mailto:<?= c('contact', 'email', 'GP2coaching@gmail.com') ?>" style="color:inherit">
                   <?= c('contact', 'email', 'GP2coaching@gmail.com') ?>
                 </a>
               </strong>
@@ -78,9 +79,12 @@ function old(string $key, array $data): string {
       </div>
 
       <div class="contact-photo hv-image fade-up delay-1">
-        <?= img('contact', 'cabinet_photo',
-            'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=80&auto=format&fit=crop',
-            'Cabinet GP Coaching') ?>
+        <?= img(
+          'contact',
+          'cabinet_photo',
+          'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=80&auto=format&fit=crop',
+          'Cabinet GP Coaching'
+        ) ?>
       </div>
     </div>
 
@@ -105,21 +109,21 @@ function old(string $key, array $data): string {
             </div>
           <?php endif; ?>
 
-          <form class="contact-form" method="POST" action="includes/contact-handler.php" novalidate>
-            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>"/>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true"/>
+          <form class="contact-form" method="POST" action="contact.php" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
 
             <div class="form-group">
               <label for="nom">Nom et prénom <span style="color:var(--gold)">*</span></label>
-              <input type="text" id="nom" name="nom" placeholder="Votre nom complet" value="<?= old('nom', $form_data) ?>" required autocomplete="name"/>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom complet" value="<?= old('nom', $form_data) ?>" required autocomplete="name" />
             </div>
             <div class="form-group">
               <label for="email">Email <span style="color:var(--gold)">*</span></label>
-              <input type="email" id="email" name="email" placeholder="votre@email.com" value="<?= old('email', $form_data) ?>" required autocomplete="email"/>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" value="<?= old('email', $form_data) ?>" required autocomplete="email" />
             </div>
             <div class="form-group">
               <label for="telephone">Téléphone</label>
-              <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" value="<?= old('telephone', $form_data) ?>" autocomplete="tel"/>
+              <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" value="<?= old('telephone', $form_data) ?>" autocomplete="tel" />
             </div>
             <div class="form-group">
               <label for="message">Votre message <span style="color:var(--gold)">*</span></label>
