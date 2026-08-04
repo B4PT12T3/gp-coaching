@@ -1,28 +1,12 @@
 <?php
 session_start();
-require_once 'includes/content.php';
 
 // Générer token CSRF
 if (empty($_SESSION['csrf_token'])) {
   $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-// ── TRAITEMENT DU FORMULAIRE (intégré, même fichier = même session) ──
-// DEBUG TEMPORAIRE — supprimer après test
-if (isset($_GET['debug'])) {
-  echo '<pre style="background:#fff;padding:1rem;margin:1rem;border-radius:4px">';
-  echo "METHOD : " . $_SERVER['REQUEST_METHOD'] . "
-";
-  echo "PHP_SELF : " . $_SERVER['PHP_SELF'] . "
-";
-  echo "POST : ";
-  print_r($_POST);
-  echo "SESSION : ";
-  print_r($_SESSION);
-  echo '</pre>';
-  exit;
-}
-
+// ── TRAITEMENT DU FORMULAIRE ──────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // CSRF
@@ -70,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Envoi email
   $sujet  = '[GP Coaching] Nouveau message de ' . $nom;
   $corps  = "Nouveau message reçu depuis le site GP Coaching\n";
-  $corps .= str_repeat('─', 50) . "\n\n";
+  $corps .= str_repeat('-', 50) . "\n\n";
   $corps .= "Nom       : $nom\n";
   $corps .= "Email     : $email\n";
-  $corps .= "Téléphone : " . ($telephone ?: 'Non renseigné') . "\n\n";
+  $corps .= "Telephone : " . ($telephone ?: 'Non renseigné') . "\n\n";
   $corps .= "Message :\n$message\n\n";
-  $corps .= str_repeat('─', 50) . "\n";
+  $corps .= str_repeat('-', 50) . "\n";
   $corps .= "Envoyé le : " . date('d/m/Y à H:i') . "\n";
 
   $headers  = "From: GP Coaching <mail_php@gpcoaching.fr>\r\n";
@@ -89,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($envoye) {
     $_SESSION[$ip_key] = time();
     unset($_SESSION['form_data'], $_SESSION['form_errors']);
-    // Regénérer le token après envoi réussi
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     header('Location: contact.php?sent=1');
   } else {
@@ -99,12 +82,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   exit;
 }
 
-// ── LECTURE SESSION après redirect ──
+// ── LECTURE SESSION après redirect ────────────────────────────────────
 $sent        = isset($_GET['sent']);
 $form_errors = $_SESSION['form_errors'] ?? [];
 $form_error  = $_SESSION['form_error']  ?? '';
 $form_data   = $_SESSION['form_data']   ?? [];
 unset($_SESSION['form_errors'], $_SESSION['form_error'], $_SESSION['form_data']);
+
+// BDD chargée uniquement pour l'affichage (après le traitement POST)
+require_once 'includes/content.php';
 
 function old(string $key, array $data): string
 {
@@ -205,15 +191,19 @@ function old(string $key, array $data): string
 
           <?php if (!empty($form_errors)): ?>
             <div class="form-alert form-alert-error">
-              <ul><?php foreach ($form_errors as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul>
+              <ul><?php foreach ($form_errors as $e): ?>
+                  <li><?= htmlspecialchars($e) ?></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
           <?php endif; ?>
 
-          <!-- Action = contact.php lui-même, même session garantie -->
-          <form class="contact-form" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" novalidate>
+          <form class="contact-form" method="POST"
+            action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" novalidate>
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
             <!-- Honeypot -->
-            <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+            <input type="text" name="website" tabindex="-1"
+              autocomplete="off" style="display:none" aria-hidden="true" />
 
             <div class="form-group">
               <label for="nom">Nom et prénom <span style="color:var(--gold)">*</span></label>
@@ -242,7 +232,8 @@ function old(string $key, array $data): string
                 placeholder="Décrivez votre situation ou votre besoin..."
                 required><?= old('message', $form_data) ?></textarea>
             </div>
-            <button class="btn btn-navy" type="submit" style="width:100%;justify-content:center">
+            <button class="btn btn-navy" type="submit"
+              style="width:100%;justify-content:center">
               Envoyer
             </button>
           </form>
