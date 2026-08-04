@@ -1,4 +1,5 @@
 <?php
+
 /**
  * GP COACHING — footer.php
  * Réseaux sociaux et copyright lus depuis la BDD
@@ -6,15 +7,15 @@
 
 // Charger content() si pas encore chargé
 if (!function_exists('content')) {
-    require_once __DIR__ . '/content.php';
+  require_once __DIR__ . '/content.php';
 }
 
 // Réseaux sociaux — on n'affiche que ceux qui ont une URL renseignée
 $socials = [
-    'linkedin'  => ['url' => content('global','social_linkedin',''),  'label' => 'LinkedIn',  'icon' => 'in'],
-    'facebook'  => ['url' => content('global','social_facebook',''),  'label' => 'Facebook',  'icon' => 'f'],
-    'instagram' => ['url' => content('global','social_instagram',''), 'label' => 'Instagram', 'icon' => 'ig'],
-    'youtube'   => ['url' => content('global','social_youtube',''),   'label' => 'YouTube',   'icon' => 'yt'],
+  'linkedin'  => ['url' => content('global', 'social_linkedin', ''),  'label' => 'LinkedIn',  'icon' => 'in'],
+  'facebook'  => ['url' => content('global', 'social_facebook', ''),  'label' => 'Facebook',  'icon' => 'f'],
+  'instagram' => ['url' => content('global', 'social_instagram', ''), 'label' => 'Instagram', 'icon' => 'ig'],
+  'youtube'   => ['url' => content('global', 'social_youtube', ''),   'label' => 'YouTube',   'icon' => 'yt'],
 ];
 $socials_actifs = array_filter($socials, fn($s) => !empty($s['url']));
 
@@ -28,9 +29,10 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
 
     <div class="footer-brand">
       <div class="footer-brand-logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);width:18px;height:18px">
-          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-        </svg>
+        <img
+          src="assets/images/LogoBleu.png"
+          alt="GP Coaching logo"
+          style="width:28px;height:28px;object-fit:contain;display:block;filter:brightness(0) invert(1)" />
       </div>
       <div>
         <div class="footer-brand-name">GP Coaching</div>
@@ -47,15 +49,15 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
 
     <div class="footer-right">
       <?php if (!empty($socials_actifs)): ?>
-      <div class="footer-social">
-        <?php foreach ($socials_actifs as $s): ?>
-          <a href="<?= htmlspecialchars($s['url']) ?>"
-             aria-label="<?= $s['label'] ?>"
-             target="_blank" rel="noopener noreferrer">
-            <?= $s['icon'] ?>
-          </a>
-        <?php endforeach; ?>
-      </div>
+        <div class="footer-social">
+          <?php foreach ($socials_actifs as $s): ?>
+            <a href="<?= htmlspecialchars($s['url']) ?>"
+              aria-label="<?= $s['label'] ?>"
+              target="_blank" rel="noopener noreferrer">
+              <?= $s['icon'] ?>
+            </a>
+          <?php endforeach; ?>
+        </div>
       <?php endif; ?>
     </div>
 
@@ -65,8 +67,15 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
 
 <script>
   // Lien Calendly depuis la BDD
-  window._calendlyUrl = <?= json_encode(content('global','calendly_url','https://calendly.com/')) ?>;
+  window._calendlyUrl = <?= json_encode(content('global', 'calendly_url', 'https://calendly.com/')) ?>;
 </script>
 <script src="assets/js/main.js"></script>
+<script>
+  // Initialiser les icônes Lucide après le chargement du DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  });
+</script>
 </body>
+
 </html>
