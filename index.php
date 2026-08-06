@@ -6,9 +6,12 @@ include 'includes/header.php';
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-img">
-    <?= img('accueil', 'hero_image',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop',
-        'GP Coaching — coaching de carrière') ?>
+    <?= img(
+      'accueil',
+      'hero_image',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop',
+      'GP Coaching — coaching de carrière'
+    ) ?>
   </div>
   <div class="hero-content">
     <span class="label fade-up">Coaching de carrière &amp; de vie</span>
@@ -19,7 +22,7 @@ include 'includes/header.php';
       <?= c('accueil', 'hero_sous_titre', "J'accompagne les personnes, les entrepreneurs, les dirigeants et les organisations à retrouver la clarté, de l'équilibre et la capacité d'agir durablement.") ?>
     </p>
     <div class="hero-cta fade-up delay-3">
-      <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
+      <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
     </div>
   </div>
 </section>
@@ -45,9 +48,9 @@ include 'includes/header.php';
 
       <?php
       $univers = [
-        1 => ['icon' => '🌿', 'icon_cls' => 'icon-sage', 'link' => 'equilibre',   'delay' => ''],
-        2 => ['icon' => '👥', 'icon_cls' => 'icon-dark', 'link' => 'leadership',  'delay' => ' delay-1'],
-        3 => ['icon' => '⭐', 'icon_cls' => 'icon-gold', 'link' => 'signature',   'delay' => ' delay-2'],
+        1 => ['icon' => '<i data-lucide="leaf"></i>', 'icon_cls' => 'icon-sage', 'link' => 'equilibre',   'delay' => ''],
+        2 => ['icon' => '<i data-lucide="users"></i>', 'icon_cls' => 'icon-dark', 'link' => 'leadership',  'delay' => ' delay-1'],
+        3 => ['icon' => '<i data-lucide="sparkles"></i>', 'icon_cls' => 'icon-gold', 'link' => 'signature',   'delay' => ' delay-2'],
       ];
       foreach ($univers as $n => $u):
         $default_imgs = [
@@ -56,17 +59,17 @@ include 'includes/header.php';
           3 => 'https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=80',
         ];
       ?>
-      <div class="univers-card hv-lift fade-up<?= $u['delay'] ?>">
-        <div class="univers-card-img hv-image">
-          <?= img('accueil', "univers{$n}_image", $default_imgs[$n], c('accueil', "univers{$n}_titre", "Univers $n")) ?>
+        <div class="univers-card hv-lift fade-up<?= $u['delay'] ?>">
+          <div class="univers-card-img hv-image">
+            <?= img('accueil', "univers{$n}_image", $default_imgs[$n], c('accueil', "univers{$n}_titre", "Univers $n")) ?>
+          </div>
+          <div class="univers-card-body">
+            <div class="univers-icon <?= $u['icon_cls'] ?> hv-glow"><?= $u['icon'] ?></div>
+            <h3><?= c('accueil', "univers{$n}_titre", "Univers $n") ?></h3>
+            <p><?= c('accueil', "univers{$n}_texte", '') ?></p>
+            <a class="link-arrow" href="accompagnement.php#<?= $u['link'] ?>">En savoir plus <span>→</span></a>
+          </div>
         </div>
-        <div class="univers-card-body">
-          <div class="univers-icon <?= $u['icon_cls'] ?> hv-glow"><?= $u['icon'] ?></div>
-          <h3><?= c('accueil', "univers{$n}_titre", "Univers $n") ?></h3>
-          <p><?= c('accueil', "univers{$n}_texte", '') ?></p>
-          <a class="link-arrow" href="accompagnement.php#<?= $u['link'] ?>">En savoir plus <span>→</span></a>
-        </div>
-      </div>
       <?php endforeach; ?>
 
     </div>
@@ -82,22 +85,22 @@ include 'includes/header.php';
     </div>
     <div class="why-grid">
       <div class="why-card hv-lift-sm fade-up">
-        <div class="why-icon">🤝</div>
+        <div class="why-icon"><i data-lucide="handshake"></i></div>
         <h4>Approche humaine et personnalisée</h4>
         <p>Chaque accompagnement est unique, construit autour de vous et de vos objectifs spécifiques.</p>
       </div>
       <div class="why-card hv-lift-sm fade-up delay-1">
-        <div class="why-icon">📋</div>
+        <div class="why-icon"><i data-lucide="clipboard-list"></i></div>
         <h4>Méthode structurée et éprouvée</h4>
         <p>La méthode GPACE : un cadre clair pour avancer avec confiance à chaque étape.</p>
       </div>
       <div class="why-card hv-lift-sm fade-up delay-2">
-        <div class="why-icon">💚</div>
+        <div class="why-icon"><i data-lucide="heart"></i></div>
         <h4>Écoute, exigence et bienveillance</h4>
         <p>Un espace de confiance pour explorer, décider et agir — sans jugement.</p>
       </div>
       <div class="why-card hv-lift-sm fade-up delay-3">
-        <div class="why-icon">📈</div>
+        <div class="why-icon"><i data-lucide="trending-up"></i></div>
         <h4>Orientation résultats et développement durable</h4>
         <p>Des transformations concrètes qui s'inscrivent dans la durée, pas des effets ponctuels.</p>
       </div>
@@ -113,7 +116,7 @@ include 'includes/header.php';
     <div class="divider center"></div>
     <p>Un premier échange pour faire le point sur votre situation et vos objectifs — sans engagement.</p>
     <div class="final-cta-actions">
-      <button class="btn btn-navy" onclick="openBooking()">Prendre rendez-vous</button>
+      <a class="btn btn-navy" href="contact.php">Prendre rendez-vous</a>
       <a class="btn btn-outline" href="approche.php">Découvrir mon approche</a>
     </div>
   </div>

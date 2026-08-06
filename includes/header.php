@@ -107,7 +107,7 @@ function nav_active(string $file): string
     <a href="approche.php">Mon Approche</a>
     <a href="accompagnement.php">Accompagnement</a>
     <a href="contact.php">Contact</a>
-    <button onclick="openBooking()">Prendre rendez-vous</button>
+    <a href="contact.php">Prendre rendez-vous</a>
     <?php foreach ($nav_socials as $s): if (empty($s['url'])) continue; ?>
       <a href="<?= htmlspecialchars($s['url']) ?>" target="_blank" rel="noopener noreferrer"><?= $s['label'] ?></a>
     <?php endforeach; ?>

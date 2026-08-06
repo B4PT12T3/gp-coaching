@@ -117,7 +117,7 @@ function old(string $key, array $data): string
         <div class="contact-info-list">
 
           <div class="contact-info-item hv-border">
-            <div class="contact-info-icon">📞</div>
+            <div class="contact-info-icon"><i data-lucide="phone"></i></div>
             <div class="contact-info-text">
               <strong>
                 <a href="tel:+33<?= preg_replace('/\D/', '', c('contact', 'telephone', '0672724444')) ?>" style="color:inherit">
@@ -129,7 +129,7 @@ function old(string $key, array $data): string
           </div>
 
           <div class="contact-info-item hv-border">
-            <div class="contact-info-icon">✉️</div>
+            <div class="contact-info-icon"><i data-lucide="mail"></i></div>
             <div class="contact-info-text">
               <strong>
                 <a href="mailto:<?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>" style="color:inherit">
@@ -141,7 +141,7 @@ function old(string $key, array $data): string
           </div>
 
           <div class="contact-info-item hv-border">
-            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
             <div class="contact-info-text">
               <strong><?= c('contact', 'adresse', 'Béthune et sa région') ?></strong>
               <span><?= c('contact', 'adresse_detail', 'Hauts-de-France') ?></span>
@@ -149,7 +149,7 @@ function old(string $key, array $data): string
           </div>
 
           <div class="contact-info-item hv-border">
-            <div class="contact-info-icon">🎥</div>
+            <div class="contact-info-icon"><i data-lucide="video"></i></div>
             <div class="contact-info-text">
               <strong><?= c('contact', 'modalites', 'En présentiel et en visioconférence') ?></strong>
               <span><?= c('contact', 'modalites_detail', 'Partout en France') ?></span>
@@ -244,7 +244,7 @@ function old(string $key, array $data): string
       <div class="rdv-box fade-up delay-2">
         <h3>Réservez votre premier rendez-vous</h3>
         <p>Un premier échange pour faire le point sur votre situation et vos objectifs.</p>
-        <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
+        <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
       </div>
 
     </div>

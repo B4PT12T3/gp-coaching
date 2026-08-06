@@ -7,8 +7,7 @@
     <div class="approach-photo hv-image fade-up">
       <img
         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop&crop=faces"
-        alt="Gilles, fondateur de GP Coaching"
-      />
+        alt="Gilles, fondateur de GP Coaching" />
     </div>
 
     <div class="approach-content">
@@ -37,22 +36,22 @@
     <h2 class="fade-up delay-1">Quatre piliers pour avancer</h2>
     <div class="philo-grid">
       <div class="philo-step fade-up">
-        <div class="philo-icon hv-glow">🔍</div>
+        <div class="philo-icon hv-glow"><i data-lucide="search"></i></div>
         <h4>Comprendre avant d'agir</h4>
         <p>Prendre le temps de comprendre la situation avant de s'engager dans l'action.</p>
       </div>
       <div class="philo-step fade-up delay-1">
-        <div class="philo-icon hv-glow">📋</div>
+        <div class="philo-icon hv-glow"><i data-lucide="clipboard-list"></i></div>
         <h4>Clarifier avant de décider</h4>
         <p>Mettre de l'ordre dans ses pensées pour décider avec discernement.</p>
       </div>
       <div class="philo-step fade-up delay-2">
-        <div class="philo-icon hv-glow">🎯</div>
+        <div class="philo-icon hv-glow"><i data-lucide="target"></i></div>
         <h4>Aligner pour avancer</h4>
         <p>Mettre en cohérence ses valeurs, ses objectifs et ses actions.</p>
       </div>
       <div class="philo-step fade-up delay-3">
-        <div class="philo-icon hv-glow">🌱</div>
+        <div class="philo-icon hv-glow"><i data-lucide="sprout"></i></div>
         <h4>Évoluer pour durer</h4>
         <p>S'inscrire dans une croissance durable et un développement continu.</p>
       </div>
@@ -103,12 +102,12 @@
       foreach ($etapes as $i => [$lettre, $titre, $sous]) :
         $delay = $i > 0 ? " delay-{$i}" : '';
       ?>
-      <div class="methode-step fade-up<?= $delay ?>">
-        <div class="methode-dot"><?= $lettre ?></div>
-        <?php if ($i < 4) : ?><div class="methode-arrow">→</div><?php endif; ?>
-        <h4><?= htmlspecialchars($titre) ?></h4>
-        <p class="methode-step-sub"><?= htmlspecialchars($sous) ?></p>
-      </div>
+        <div class="methode-step fade-up<?= $delay ?>">
+          <div class="methode-dot"><?= $lettre ?></div>
+          <?php if ($i < 4) : ?><div class="methode-arrow">→</div><?php endif; ?>
+          <h4><?= htmlspecialchars($titre) ?></h4>
+          <p class="methode-step-sub"><?= htmlspecialchars($sous) ?></p>
+        </div>
       <?php endforeach; ?>
     </div>
   </div>
@@ -123,7 +122,7 @@
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
-      <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
+      <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
       <a class="btn btn-outline" href="accompagnement.php">Voir les accompagnements</a>
     </div>
   </div>
