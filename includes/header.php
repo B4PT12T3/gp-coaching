@@ -50,7 +50,6 @@ function nav_active(string $file): string
   <meta property="og:type" content="website" />
   <title><?= htmlspecialchars($title) ?></title>
   <link rel="stylesheet" href="assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>" />
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 
 <body class="page-<?= str_replace('.php', '', $current) ?>">
@@ -59,10 +58,10 @@ function nav_active(string $file): string
   <nav id="main-nav">
     <a class="nav-brand" href="index.php">
       <div class="nav-brand-logo">
-        <img
-          src="<?= BASE_URL ?>assets/images/LogoBleu.png"
-          alt="GP Coaching logo"
-          style="width:36px;height:36px;object-fit:contain;display:block" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);width:22px;height:22px">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v4l3 3" />
+        </svg>
       </div>
       <div class="nav-brand-text">
         <span class="nav-brand-name">GP Coaching</span>
