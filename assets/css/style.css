@@ -1,20 +1,17 @@
 /* ============================================================
-   GP COACHING — STYLE.CSS  (thème Beige / Bleu marine)
+   GP COACHING — STYLE.CSS
+   Thème Beige / Bleu marine sobre
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  /* Fonds beige/blanc cassé */
+  /* Fonds */
   --bg-base: #F7F3ED;
-  /* fond principal pages */
   --bg-alt: #F0EBE2;
-  /* fond sections alternées */
   --bg-card: #FFFFFF;
-  /* fond cartes */
   --bg-sand: #EDE7DC;
-  /* fond bande citation, valeurs */
 
   /* Bleu marine (nav, footer, CTA) */
   --navy: #1B2B4B;
@@ -33,7 +30,7 @@
   --ink-60: rgba(30, 26, 20, .6);
   --ink-30: rgba(30, 26, 20, .3);
 
-  /* Vert sauge (accents) */
+  /* Vert sauge */
   --sage: #4A6741;
   --sage-dim: rgba(74, 103, 65, .15);
 
@@ -122,6 +119,11 @@ p {
 em {
   font-style: italic;
   color: var(--gold);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .label {
@@ -250,7 +252,7 @@ section {
   gap: .85rem;
 }
 
-/* ── ANIMATIONS scroll ── */
+/* ── ANIMATIONS SCROLL ── */
 .fade-up {
   opacity: 0;
   transform: translateY(24px);
@@ -284,10 +286,9 @@ section {
 
 /* ============================================================
    HOVER ANIMATIONS
-   Ajoute ces classes à tes éléments HTML pour activer le hover
    ============================================================ */
 
-/* ── hv-lift : monte de 4px avec ombre (cartes, boutons) ── */
+/* hv-lift : monte + ombre (cartes) */
 .hv-lift {
   transition: transform .28s var(--ease), box-shadow .28s var(--ease);
 }
@@ -297,7 +298,7 @@ section {
   box-shadow: 0 12px 36px rgba(27, 43, 75, .12);
 }
 
-/* ── hv-lift-sm : montée plus discrète (éléments compacts) ── */
+/* hv-lift-sm : montée légère (petits éléments) */
 .hv-lift-sm {
   transition: transform .25s var(--ease), box-shadow .25s var(--ease);
 }
@@ -307,7 +308,7 @@ section {
   box-shadow: 0 6px 20px rgba(27, 43, 75, .09);
 }
 
-/* ── hv-border : bordure gauche or au hover (items de liste) ── */
+/* hv-border : bordure or glissante à gauche (items liste) */
 .hv-border {
   border-left: 3px solid transparent;
   padding-left: 1rem;
@@ -320,7 +321,7 @@ section {
   background: var(--gold-dim);
 }
 
-/* ── hv-glow : lueur or (icônes, pastilles) ── */
+/* hv-glow : halo or (icônes rondes) */
 .hv-glow {
   transition: box-shadow .28s var(--ease), transform .28s var(--ease);
 }
@@ -330,7 +331,7 @@ section {
   transform: scale(1.06);
 }
 
-/* ── hv-underline : soulignement glissant (liens nav, textes) ── */
+/* hv-underline : soulignement glissant (liens) */
 .hv-underline {
   position: relative;
 }
@@ -352,8 +353,7 @@ section {
   transform: scaleX(1);
 }
 
-/* ── hv-image : zoom subtil sur image dans conteneur overflow:hidden ── */
-/* Mettre .hv-image sur le parent, l'image zoomera au hover */
+/* hv-image : zoom image (sur le conteneur parent) */
 .hv-image {
   overflow: hidden;
 }
@@ -366,7 +366,7 @@ section {
   transform: scale(1.04);
 }
 
-/* ── hv-navy : fond navy au hover (pastilles, étapes) ── */
+/* hv-navy : fond navy au hover (chips, pastilles) */
 .hv-navy {
   transition: background .25s, color .25s, border-color .25s;
 }
@@ -423,6 +423,11 @@ nav.scrolled {
   width: 20px;
   height: 20px;
   color: var(--gold-light);
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-brand-name {
@@ -704,7 +709,7 @@ footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, rgba(27, 43, 75, .88) 0%, rgba(27, 43, 75, .55) 50%, rgba(27, 43, 75, .25) 100%);
+  background: linear-gradient(105deg, rgba(27, 43, 75, .88) 0%, rgba(27, 43, 75, .55) 50%, rgba(27, 43, 75, .2) 100%);
 }
 
 .hero-content {
@@ -736,9 +741,7 @@ footer {
   margin-top: 2.5rem;
 }
 
-/* ============================================================
-   CITATION
-   ============================================================ */
+/* ── CITATION ── */
 .quote-band {
   background: var(--navy);
   padding: 3.5rem var(--gutter);
@@ -773,9 +776,7 @@ footer {
   margin-top: 1rem;
 }
 
-/* ============================================================
-   UNIVERS (cartes)
-   ============================================================ */
+/* ── UNIVERS ── */
 .univers-section {
   background: var(--bg-base);
 }
@@ -843,7 +844,7 @@ footer {
   border: 1.5px solid rgba(74, 103, 65, .25);
 }
 
-.icon-navy {
+.icon-dark {
   background: var(--navy-dim);
   border: 1.5px solid var(--navy-border);
 }
@@ -864,9 +865,7 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-/* ============================================================
-   POURQUOI GP COACHING
-   ============================================================ */
+/* ── POURQUOI ── */
 .why-section {
   background: var(--bg-alt);
 }
@@ -907,7 +906,7 @@ footer {
    MON APPROCHE
    ============================================================ */
 .approach-hero {
-  padding-top: 130px;
+  padding-top: 120px;
   padding-bottom: var(--section-py);
   background: var(--bg-base);
 }
@@ -1016,6 +1015,11 @@ footer {
   margin-bottom: 1rem;
 }
 
+.mission-card h3 {
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
 /* Méthode GPACE */
 .methode-section {
   background: var(--navy);
@@ -1114,7 +1118,7 @@ footer {
    ACCOMPAGNEMENT
    ============================================================ */
 .accompagner-hero {
-  padding-top: 130px;
+  padding-top: 120px;
   padding-bottom: 60px;
   background: var(--bg-base);
   text-align: center;
@@ -1122,6 +1126,10 @@ footer {
 
 .accompagner-hero h1 {
   color: var(--ink);
+}
+
+.accompagner-hero .section-intro {
+  color: var(--ink-60);
 }
 
 .services-full {
@@ -1299,7 +1307,7 @@ footer {
    CONTACT
    ============================================================ */
 .contact-hero {
-  padding-top: 130px;
+  padding-top: 120px;
   padding-bottom: 60px;
   background: var(--bg-base);
   text-align: center;
@@ -1351,8 +1359,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: var(--navy);
-  transition: background .25s, color .25s, transform .25s var(--ease);
+  transition: background .25s, transform .25s var(--ease);
 }
 
 .contact-info-item:hover .contact-info-icon {
@@ -1522,7 +1529,7 @@ footer {
 }
 
 /* ============================================================
-   CTA FINAL (partagé)
+   CTA FINAL
    ============================================================ */
 .final-cta {
   background: var(--bg-sand);
@@ -1641,6 +1648,10 @@ footer {
 
   .nav-hamburger {
     display: flex;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .final-cta-actions {
