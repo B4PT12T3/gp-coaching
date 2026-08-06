@@ -29,10 +29,10 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
 
     <div class="footer-brand">
       <div class="footer-brand-logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);width:18px;height:18px">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 8v4l3 3" />
-        </svg>
+        <img
+          src="/assets/images/LogoBleu.png"
+          alt="GP Coaching logo"
+          style="width:28px;height:28px;object-fit:contain;display:block;filter:brightness(0) invert(1)" />
       </div>
       <div>
         <div class="footer-brand-name">GP Coaching</div>
@@ -70,6 +70,12 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
   window._calendlyUrl = <?= json_encode(content('global', 'calendly_url', 'https://calendly.com/')) ?>;
 </script>
 <script src="assets/js/main.js"></script>
+<script>
+  // Initialiser les icônes Lucide après le chargement du DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  });
+</script>
 </body>
 
 </html>
