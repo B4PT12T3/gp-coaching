@@ -46,6 +46,92 @@
   --radius: 4px;
 }
 
+
+/* ── LUCIDE ICONS ── */
+.lucide {
+  width: 1em;
+  height: 1em;
+  stroke-width: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Tailles contextuelles */
+.why-icon .lucide,
+.valeur-icon .lucide {
+  width: 28px;
+  height: 28px;
+  stroke: var(--navy);
+}
+
+.univers-icon .lucide {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-sage .lucide {
+  stroke: var(--sage);
+}
+
+.icon-dark .lucide {
+  stroke: var(--navy);
+}
+
+.icon-gold .lucide {
+  stroke: var(--gold);
+}
+
+.philo-icon .lucide {
+  width: 24px;
+  height: 24px;
+  stroke: var(--navy);
+}
+
+.parcours-dot .lucide {
+  width: 20px;
+  height: 20px;
+  stroke: var(--navy);
+}
+
+.contact-info-icon .lucide {
+  width: 20px;
+  height: 20px;
+  stroke: var(--navy);
+}
+
+.service-icon-large .lucide {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-sage.service-icon-large .lucide {
+  stroke: var(--sage);
+}
+
+.icon-dark.service-icon-large .lucide {
+  stroke: var(--navy);
+}
+
+.icon-gold.service-icon-large .lucide {
+  stroke: var(--gold);
+}
+
+/* Supprimer font-size emoji sur ces conteneurs */
+.why-icon {
+  font-size: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valeur-icon {
+  font-size: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ── RESET ── */
 *,
 *::before,
@@ -408,21 +494,12 @@ nav.scrolled {
 }
 
 .nav-brand-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, .2);
-  background: rgba(255, 255, 255, .07);
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.nav-brand-logo svg {
-  width: 20px;
-  height: 20px;
-  color: var(--gold-light);
 }
 
 .nav-brand-text {
@@ -980,9 +1057,18 @@ footer {
   transform: scale(1.08);
 }
 
+.philo-step:hover .philo-icon .lucide {
+  stroke: #fff;
+}
+
 .philo-step h4 {
   color: var(--ink);
   margin-bottom: .3rem;
+  transition: color .25s;
+}
+
+.philo-step:hover h4 {
+  color: var(--navy);
 }
 
 /* Mission / Conviction */
