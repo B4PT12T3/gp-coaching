@@ -47,10 +47,26 @@ include 'includes/header.php';
     <div class="univers-grid">
 
       <?php
+      // Couleurs officielles des univers
       $univers = [
-        1 => ['icon' => '<i data-lucide="leaf"></i>', 'icon_cls' => 'icon-sage', 'link' => 'equilibre',   'delay' => ''],
-        2 => ['icon' => '<i data-lucide="users"></i>', 'icon_cls' => 'icon-dark', 'link' => 'leadership',  'delay' => ' delay-1'],
-        3 => ['icon' => '<i data-lucide="sparkles"></i>', 'icon_cls' => 'icon-gold', 'link' => 'signature',   'delay' => ' delay-2'],
+        1 => [
+          'icon'     => '<i data-lucide="sprout"></i>',
+          'color'    => '#667264',
+          'link'     => 'equilibre',
+          'delay'    => '',
+        ],
+        2 => [
+          'icon'     => '<i data-lucide="compass"></i>',
+          'color'    => '#142739',
+          'link'     => 'leadership',
+          'delay'    => ' delay-1',
+        ],
+        3 => [
+          'icon'     => '<i data-lucide="diamond"></i>',
+          'color'    => '#C17501',
+          'link'     => 'signature',
+          'delay'    => ' delay-2',
+        ],
       ];
       foreach ($univers as $n => $u):
         $default_imgs = [
@@ -59,15 +75,19 @@ include 'includes/header.php';
           3 => 'https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=80',
         ];
       ?>
-        <div class="univers-card hv-lift fade-up<?= $u['delay'] ?>">
+        <div class="univers-card hv-lift fade-up<?= $u['delay'] ?>"
+          style="--u-color:<?= $u['color'] ?>">
           <div class="univers-card-img hv-image">
             <?= img('accueil', "univers{$n}_image", $default_imgs[$n], c('accueil', "univers{$n}_titre", "Univers $n")) ?>
           </div>
           <div class="univers-card-body">
-            <div class="univers-icon <?= $u['icon_cls'] ?> hv-glow"><?= $u['icon'] ?></div>
+            <div class="univers-icon hv-glow"
+              style="background:<?= $u['color'] ?>18;border-color:<?= $u['color'] ?>44">
+              <span style="color:<?= $u['color'] ?>"><?= $u['icon'] ?></span>
+            </div>
             <h3><?= c('accueil', "univers{$n}_titre", "Univers $n") ?></h3>
             <p><?= c('accueil', "univers{$n}_texte", '') ?></p>
-            <a class="link-arrow" href="accompagnement.php#<?= $u['link'] ?>">En savoir plus <span>→</span></a>
+            <a class="link-arrow" href="accompagnement.php#<?= $u['link'] ?>" style="color:<?= $u['color'] ?>">En savoir plus <span>→</span></a>
           </div>
         </div>
       <?php endforeach; ?>
