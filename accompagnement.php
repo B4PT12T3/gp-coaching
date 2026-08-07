@@ -1,4 +1,107 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/content.php';
+include 'includes/header.php';
+
+// ── DONNÉES DES UNIVERS ──────────────────────────────────────────────
+$univers = [
+
+  1 => [
+    'id'       => 'equilibre',
+    'couleur'  => '#667264',
+    'icon'     => 'sprout',
+    'label'    => 'Univers 01',
+    'titre'    => content('accompagnement', 'u1_titre',   'Équilibre & Développement personnel'),
+    'accroche' => content('accompagnement', 'u1_accroche', 'Retrouver son équilibre, se reconnecter à l\'essentiel'),
+    'image'    => content('accompagnement', 'u1_image',   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80'),
+    'points'   => [
+      content('accompagnement', 'u1_p1', 'Retrouver confiance en soi'),
+      content('accompagnement', 'u1_p2', 'Équilibrer vie personnelle et vie professionnelle'),
+      content('accompagnement', 'u1_p3', 'Traverser les périodes de transition'),
+      content('accompagnement', 'u1_p4', 'Retrouver du sens et de la clarté'),
+    ],
+    'sous_parcours' => [],
+  ],
+
+  2 => [
+    'id'       => 'leadership',
+    'couleur'  => '#142739',
+    'icon'     => 'compass',
+    'label'    => 'Univers 02',
+    'titre'    => content('accompagnement', 'u2_titre',   'Leadership & Performance'),
+    'accroche' => content('accompagnement', 'u2_accroche', 'Développer votre leadership et votre impact'),
+    'image'    => content('accompagnement', 'u2_image',   'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'),
+    'points'   => [],
+    'sous_parcours' => [
+      [
+        'id'       => 'leadership-parcours',
+        'icon'     => 'goal',
+        'titre'    => content('accompagnement', 'u2_1_titre',   'Parcours Leadership'),
+        'accroche' => content('accompagnement', 'u2_1_accroche', 'Piloter avec clarté, décider et performer'),
+        'image'    => content('accompagnement', 'u2_1_image',   'https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=800&q=80'),
+        'points'   => [
+          content('accompagnement', 'u2_1_p1', 'Clarifier votre vision et vos objectifs'),
+          content('accompagnement', 'u2_1_p2', 'Prendre des décisions alignées et efficaces'),
+          content('accompagnement', 'u2_1_p3', 'Passer à l\'action avec impact'),
+          content('accompagnement', 'u2_1_p4', 'Développer votre performance et celle de votre équipe'),
+        ],
+      ],
+      [
+        'id'       => 'posture',
+        'icon'     => 'shield',
+        'titre'    => content('accompagnement', 'u2_2_titre',   'Parcours Posture'),
+        'accroche' => content('accompagnement', 'u2_2_accroche', 'Affirmer votre posture, inspirer et avoir de l\'impact'),
+        'image'    => content('accompagnement', 'u2_2_image',   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80'),
+        'points'   => [
+          content('accompagnement', 'u2_2_p1', 'Affirmer votre leadership'),
+          content('accompagnement', 'u2_2_p2', 'Inspirer confiance et motivation'),
+          content('accompagnement', 'u2_2_p3', 'Renforcer votre présence et votre influence'),
+          content('accompagnement', 'u2_2_p4', 'Développer votre impact au quotidien'),
+        ],
+      ],
+    ],
+  ],
+
+  3 => [
+    'id'       => 'signature',
+    'couleur'  => '#C17501',
+    'icon'     => 'diamond',
+    'label'    => 'Univers 03',
+    'titre'    => content('accompagnement', 'u3_titre',   'Signature'),
+    'accroche' => content('accompagnement', 'u3_accroche', 'Accompagnements premium et sur-mesure'),
+    'image'    => content('accompagnement', 'u3_image',   'https://images.unsplash.com/photo-1502780402662-acc01917949e?w=800&q=80'),
+    'points'   => [],
+    'sous_parcours' => [
+      [
+        'id'       => 'trajectoire',
+        'icon'     => 'trending-up',
+        'titre'    => content('accompagnement', 'u3_1_titre',   'Parcours Trajectoire'),
+        'accroche' => content('accompagnement', 'u3_1_accroche', 'Structurer, développer et piloter votre croissance'),
+        'image'    => content('accompagnement', 'u3_1_image',   'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80'),
+        'points'   => [
+          content('accompagnement', 'u3_1_p1', 'Structurer votre activité et votre organisation'),
+          content('accompagnement', 'u3_1_p2', 'Développer votre entreprise de façon maîtrisée'),
+          content('accompagnement', 'u3_1_p3', 'Piloter vos résultats et vos équipes'),
+          content('accompagnement', 'u3_1_p4', 'Préparer la croissance et l\'avenir'),
+        ],
+      ],
+      [
+        'id'       => 'alignement',
+        'icon'     => 'tree-pine',
+        'titre'    => content('accompagnement', 'u3_2_titre',   'Parcours Alignement'),
+        'accroche' => content('accompagnement', 'u3_2_accroche', 'Se reconnecter, se réaliser et se révéler'),
+        'image'    => content('accompagnement', 'u3_2_image',   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'),
+        'points'   => [
+          content('accompagnement', 'u3_2_p1', 'Se reconnecter à soi et à ses valeurs'),
+          content('accompagnement', 'u3_2_p2', 'Se réaligner avec sa vision et ses priorités'),
+          content('accompagnement', 'u3_2_p3', 'Se révéler et agir avec cohérence'),
+          content('accompagnement', 'u3_2_p4', 'Dédié aux entreprises entre 3 et 5 ans d\'activité'),
+        ],
+      ],
+    ],
+  ],
+
+];
+?>
 
 <!-- ══ HERO ══ -->
 <section class="accompagner-hero">
@@ -7,88 +110,104 @@
   <p class="section-intro fade-up delay-2">Vous aider à avancer avec clarté, confiance et impact.</p>
 </section>
 
+<!-- ══ ACCORDÉONS ══ -->
+<section class="univers-accordeon-section">
+  <div class="container">
 
-<!-- ══ SERVICES DÉTAILLÉS ══ -->
-<section class="services-full" style="padding:0 var(--gutter) var(--section-py)">
+    <?php foreach ($univers as $n => $u): ?>
+      <div class="ua-item fade-up" id="<?= $u['id'] ?>" data-index="<?= $n ?>">
 
-  <?php
-  $services = [
-    [
-      'id'      => 'equilibre',
-      'univers' => '01',
-      'icon'    => '<i data-lucide="leaf"></i>',
-      'icon_cls' => 'icon-sage',
-      'titre'   => 'Équilibre &amp; Développement personnel',
-      'p1'      => 'Retrouver confiance, sérénité et équilibre pour avancer en harmonie avec soi-même et donner le meilleur de soi.',
-      'p2'      => 'Que vous traversiez une période de doute, de transition ou que vous souhaitiez simplement mieux vous connaître pour mieux agir, cet accompagnement vous offre le cadre et les outils pour retrouver votre équilibre intérieur.',
-      'cta'     => 'Commencer l\'accompagnement',
-      'img'     => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop',
-      'img_alt' => 'Équilibre et sérénité',
-      'layout'  => 'img-right',
-    ],
-    [
-      'id'      => 'leadership',
-      'univers' => '02',
-      'icon'    => '<i data-lucide="users"></i>',
-      'icon_cls' => 'icon-dark',
-      'titre'   => 'Leadership &amp; Performance',
-      'p1'      => 'Développer votre leadership, renforcer votre posture et améliorer votre performance pour atteindre durablement vos objectifs professionnels.',
-      'p2'      => 'Pour les managers, cadres et dirigeants qui souhaitent affirmer leur leadership, mieux piloter leurs équipes et aligner leurs actions avec leur vision stratégique.',
-      'cta'     => 'Discuter de vos besoins',
-      'img'     => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format&fit=crop',
-      'img_alt' => 'Leadership et performance',
-      'layout'  => 'img-left',
-    ],
-    [
-      'id'      => 'signature',
-      'univers' => '03',
-      'icon'    => '<i data-lucide="sparkles"></i>',
-      'icon_cls' => 'icon-gold',
-      'titre'   => 'Signature',
-      'p1'      => 'Des accompagnements premium et sur-mesure pour les entrepreneurs, dirigeants et professionnels qui souhaitent construire l\'avenir avec vision, sens et impact.',
-      'p2'      => 'Le programme Signature est un accompagnement exclusif conçu pour ceux qui veulent aller au fond des choses. Il combine coaching individuel intensif, outils de développement avancés et un suivi de proximité sur la durée.',
-      'cta'     => 'Réserver un entretien',
-      'img'     => 'https://images.unsplash.com/photo-1502780402662-acc01917949e?w=800&q=80&auto=format&fit=crop',
-      'img_alt' => 'Accompagnement Signature',
-      'layout'  => 'img-right',
-    ],
-  ];
+        <!-- ── HEADER accordéon ── -->
+        <button class="ua-header" onclick="toggleUnivers(<?= $n ?>)"
+          style="--u-color: <?= $u['couleur'] ?>">
+          <div class="ua-header-left">
+            <div class="ua-icon" style="background:<?= $u['couleur'] ?>1a; border-color:<?= $u['couleur'] ?>44">
+              <i data-lucide="<?= $u['icon'] ?>" style="stroke:<?= $u['couleur'] ?>"></i>
+            </div>
+            <div class="ua-header-text">
+              <span class="ua-label"><?= htmlspecialchars($u['label']) ?></span>
+              <span class="ua-titre"><?= htmlspecialchars($u['titre']) ?></span>
+              <span class="ua-accroche"><?= htmlspecialchars($u['accroche']) ?></span>
+            </div>
+          </div>
+          <div class="ua-chevron">
+            <i data-lucide="chevron-down"></i>
+          </div>
+        </button>
 
-  foreach ($services as $i => $s) :
-    $delay_img  = $s['layout'] === 'img-right' ? 'delay-1' : '';
-    $delay_txt  = $s['layout'] === 'img-left'  ? 'delay-1' : '';
-  ?>
-    <div class="service-full-card <?= $s['layout'] ?>" id="<?= $s['id'] ?>">
+        <!-- ── BODY accordéon ── -->
+        <div class="ua-body" id="ua-body-<?= $n ?>">
+          <div class="ua-body-inner">
 
-      <?php if ($s['layout'] === 'img-left') : ?>
-        <div class="service-img hv-image fade-up <?= $delay_img ?>">
-          <img src="<?= $s['img'] ?>" alt="<?= htmlspecialchars($s['img_alt']) ?>" />
+            <?php if (empty($u['sous_parcours'])): ?>
+              <!-- Univers simple (pas de sous-parcours) -->
+              <div class="ua-parcours" style="--p-color: <?= $u['couleur'] ?>">
+                <div class="ua-parcours-img hv-image">
+                  <img src="<?= htmlspecialchars($u['image']) ?>"
+                    alt="<?= htmlspecialchars($u['titre']) ?>" />
+                </div>
+                <div class="ua-parcours-content">
+                  <h3><?= htmlspecialchars($u['accroche']) ?></h3>
+                  <ul class="ua-points">
+                    <?php foreach ($u['points'] as $point): ?>
+                      <li>
+                        <i data-lucide="check" style="stroke:<?= $u['couleur'] ?>"></i>
+                        <?= htmlspecialchars($point) ?>
+                      </li>
+                    <?php endforeach; ?>
+                  </ul>
+                  <a class="btn ua-cta" style="background:<?= $u['couleur'] ?>;color:#fff"
+                    href="contact.php">
+                    Commencer ce parcours
+                  </a>
+                </div>
+              </div>
+
+            <?php else: ?>
+              <!-- Univers avec sous-parcours -->
+              <?php foreach ($u['sous_parcours'] as $i => $sp): ?>
+                <div class="ua-parcours ua-sous-parcours <?= $i > 0 ? 'ua-sous-separator' : '' ?>"
+                  style="--p-color: <?= $u['couleur'] ?>">
+                  <div class="ua-parcours-img hv-image">
+                    <img src="<?= htmlspecialchars($sp['image']) ?>"
+                      alt="<?= htmlspecialchars($sp['titre']) ?>" />
+                  </div>
+                  <div class="ua-parcours-content">
+                    <div class="ua-sous-header">
+                      <div class="ua-sous-icon" style="background:<?= $u['couleur'] ?>1a; border:1px solid <?= $u['couleur'] ?>44">
+                        <i data-lucide="<?= $sp['icon'] ?>" style="stroke:<?= $u['couleur'] ?>"></i>
+                      </div>
+                      <div>
+                        <div class="ua-sous-label" style="color:<?= $u['couleur'] ?>">
+                          <?= htmlspecialchars($sp['titre']) ?>
+                        </div>
+                        <h3><?= htmlspecialchars($sp['accroche']) ?></h3>
+                      </div>
+                    </div>
+                    <ul class="ua-points">
+                      <?php foreach ($sp['points'] as $point): ?>
+                        <li>
+                          <i data-lucide="check" style="stroke:<?= $u['couleur'] ?>"></i>
+                          <?= htmlspecialchars($point) ?>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                    <a class="btn ua-cta" style="background:<?= $u['couleur'] ?>;color:#fff"
+                      href="contact.php">
+                      Commencer ce parcours
+                    </a>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+
+          </div>
         </div>
-      <?php endif; ?>
-
-      <div class="service-content fade-up <?= $delay_txt ?>">
-        <div class="service-icon-large <?= $s['icon_cls'] ?>"><?= $s['icon'] ?></div>
-        <span class="label">UNIVERS <?= $s['univers'] ?></span>
-        <h2><?= $s['titre'] ?></h2>
-        <div class="divider"></div>
-        <p><?= $s['p1'] ?></p>
-        <p style="margin-top:1rem"><?= $s['p2'] ?></p>
-        <a class="btn btn-gold" style="margin-top:2rem" href="contact.php">
-          <?= htmlspecialchars($s['cta']) ?>
-        </a>
       </div>
+    <?php endforeach; ?>
 
-      <?php if ($s['layout'] === 'img-right') : ?>
-        <div class="service-img hv-image fade-up <?= $delay_img ?>">
-          <img src="<?= $s['img'] ?>" alt="<?= htmlspecialchars($s['img_alt']) ?>" />
-        </div>
-      <?php endif; ?>
-
-    </div>
-  <?php endforeach; ?>
-
+  </div>
 </section>
-
 
 <!-- ══ PARCOURS ══ -->
 <section class="parcours-section">
@@ -101,12 +220,12 @@
       <?php
       $etapes = [
         ['<i data-lucide="message-circle"></i>', 'Premier échange'],
-        ['<i data-lucide="search"></i>', 'Diagnostic personnalisé'],
-        ['<i data-lucide="map"></i>', 'Choix du parcours adapté'],
-        ['<i data-lucide="target"></i>', 'Accompagnement sur-mesure'],
-        ['<i data-lucide="trending-up"></i>', 'Bilan &amp; suivi dans la durée'],
+        ['<i data-lucide="search"></i>',         'Diagnostic personnalisé'],
+        ['<i data-lucide="map"></i>',             'Choix du parcours adapté'],
+        ['<i data-lucide="target"></i>',          'Accompagnement sur-mesure'],
+        ['<i data-lucide="trending-up"></i>',     'Bilan &amp; suivi dans la durée'],
       ];
-      foreach ($etapes as $i => [$icon, $label]) :
+      foreach ($etapes as $i => [$icon, $label]):
         $delay = $i > 0 ? " delay-{$i}" : '';
       ?>
         <div class="parcours-step fade-up<?= $delay ?>">
@@ -117,7 +236,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ══ VALEURS ══ -->
 <div class="valeurs-bar">
@@ -140,7 +258,6 @@
   </div>
 </div>
 
-
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
@@ -149,10 +266,47 @@
     <div class="divider center"></div>
     <p>Sur votre situation et vos objectifs. Je vous réponds personnellement.</p>
     <div class="final-cta-actions">
-      <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
+      <a class="btn btn-navy" href="contact.php">Prendre rendez-vous</a>
       <a class="btn btn-outline" href="contact.php">Me contacter</a>
     </div>
   </div>
 </section>
+
+<script>
+  function toggleUnivers(n) {
+    const body = document.getElementById('ua-body-' + n);
+    const item = body.closest('.ua-item');
+    const isOpen = item.classList.contains('open');
+
+    // Fermer tous
+    document.querySelectorAll('.ua-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.ua-body').style.maxHeight = null;
+    });
+
+    // Ouvrir si était fermé
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      // Scroll doux vers l'item
+      setTimeout(() => item.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      }), 50);
+    }
+  }
+
+  // Réinitialiser maxHeight après resize
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.ua-item.open .ua-body').forEach(body => {
+      body.style.maxHeight = body.scrollHeight + 'px';
+    });
+  });
+
+  // Init Lucide
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  });
+</script>
 
 <?php include 'includes/footer.php'; ?>
