@@ -868,17 +868,19 @@ footer {
 .univers-card {
   background: var(--bg-card);
   border: 1px solid rgba(27, 43, 75, .08);
+  border-bottom: 3px solid var(--u-color, var(--gold));
   border-radius: var(--radius);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+  position: relative;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-bottom-width .25s;
 }
 
 .univers-card:hover {
-  border-color: var(--gold-border);
   transform: translateY(-5px);
-  box-shadow: 0 14px 40px rgba(27, 43, 75, .1);
+  box-shadow: 0 14px 40px rgba(27, 43, 75, .12);
+  border-bottom-width: 5px;
 }
 
 .univers-card-img {
@@ -914,21 +916,33 @@ footer {
   justify-content: center;
   font-size: 1.15rem;
   flex-shrink: 0;
+  border: 1.5px solid transparent;
+  transition: transform .25s var(--ease);
 }
 
+.univers-icon .lucide {
+  width: 20px;
+  height: 20px;
+}
+
+.univers-card:hover .univers-icon {
+  transform: scale(1.1);
+}
+
+/* Fallback si --u-color non défini */
 .icon-sage {
   background: var(--sage-dim);
-  border: 1.5px solid rgba(74, 103, 65, .25);
+  border-color: rgba(74, 103, 65, .25);
 }
 
 .icon-dark {
   background: var(--navy-dim);
-  border: 1.5px solid var(--navy-border);
+  border-color: var(--navy-border);
 }
 
 .icon-gold {
   background: var(--gold-dim);
-  border: 1.5px solid var(--gold-border);
+  border-color: var(--gold-border);
 }
 
 .univers-card h3 {
