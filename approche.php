@@ -114,7 +114,7 @@
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="section-heading fade-up">Parlons de votre situation</span>
+    <span class="section-heading ">Parlons de votre situation</span>
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
