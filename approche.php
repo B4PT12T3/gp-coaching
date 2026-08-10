@@ -81,7 +81,7 @@
 <section class="methode-section">
   <div class="container text-center">
     <h2 class="methode-title section-heading fade-up">
-      La métohde <em> GP </em>
+      La méthode <em> GP </em>
     </h2>
     <p class="section-intro fade-up delay-2">
       Parce que le coaching consiste à changer de regard sur une situation pour faire émerger de nouvelles possibilités.
@@ -114,7 +114,7 @@
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="section-heading">Parlons de votre situation</span>
+    <span class="section-heading fade-up">Parlons de votre situation</span>
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
