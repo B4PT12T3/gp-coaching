@@ -41,8 +41,7 @@ include 'includes/header.php';
 <section class="univers-section">
   <div class="container">
     <div class="text-center">
-      <span class="label fade-up">Trois univers d'accompagnement</span>
-      <h2 class="fade-up delay-1">Comment puis-je vous aider ?</h2>
+      <span class="section-heading fade-up">Trois univers d'accompagnement</span>
     </div>
     <div class="univers-grid">
 
@@ -100,8 +99,7 @@ include 'includes/header.php';
 <section class="why-section">
   <div class="container">
     <div class="text-center">
-      <span class="label fade-up">Pourquoi choisir GP Coaching ?</span>
-      <h2 class="fade-up delay-1">Une méthode, des résultats</h2>
+      <span class="section-heading fade-up">Pourquoi choisir GP Coaching ?</span>
     </div>
     <div class="why-grid">
       <div class="why-card hv-lift-sm fade-up">
@@ -131,8 +129,7 @@ include 'includes/header.php';
 <!-- ══ CTA FINAL ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="label">Premier échange</span>
-    <h2>Prêt·e à retrouver votre clarté ?</h2>
+    <span class="section-heading">Prêt·e à retrouver votre clarté ?</span>
     <div class="divider center"></div>
     <p>Un premier échange pour faire le point sur votre situation et vos objectifs — sans engagement.</p>
     <div class="final-cta-actions">

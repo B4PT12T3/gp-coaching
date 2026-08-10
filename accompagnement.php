@@ -105,8 +105,7 @@ $univers = [
 
 <!-- ══ HERO ══ -->
 <section class="accompagner-hero">
-  <span class="label fade-up">Trois univers, un objectif commun</span>
-  <h1 class="fade-up delay-1">Comment je peux<br>vous <em>accompagner</em></h1>
+  <span class="section-heading fade-up">Comment je peux vous <em>accompagner</em></span>
   <p class="section-intro fade-up delay-2">Vous aider à avancer avec clarté, confiance et impact.</p>
 </section>
 
@@ -213,8 +212,7 @@ $univers = [
 <section class="parcours-section">
   <div class="container">
     <div class="text-center">
-      <span class="label fade-up">Un parcours adapté à vos besoins</span>
-      <h2 class="fade-up delay-1">Comment ça se passe ?</h2>
+      <span class="section-heading fade-up">Un parcours adapté à vos besoins</span>
     </div>
     <div class="parcours-steps" style="margin-top:3.5rem">
       <?php
@@ -261,8 +259,7 @@ $univers = [
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="label">Réservez votre premier rendez-vous</span>
-    <h2>Un premier échange pour faire le point</h2>
+    <span class="section-heading">Un premier échange pour faire le point</span>
     <div class="divider center"></div>
     <p>Sur votre situation et vos objectifs. Je vous réponds personnellement.</p>
     <div class="final-cta-actions">

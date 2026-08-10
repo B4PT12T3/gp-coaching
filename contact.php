@@ -100,8 +100,7 @@ function old(string $key, array $data): string
 <?php include 'includes/header.php'; ?>
 
 <section class="contact-hero">
-  <span class="label fade-up">Contact</span>
-  <h1 class="fade-up delay-1"><em>Échangeons</em></h1>
+  <span class="section-heading fade-up"><em>Échangeons</em></span>
   <p class="section-intro fade-up delay-2">
     <?= c('contact', 'intro_texte', 'Vous avez une question ou souhaitez échanger sur vos besoins ? Je vous réponds personnellement.') ?>
   </p>

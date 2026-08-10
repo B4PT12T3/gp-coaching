@@ -229,6 +229,29 @@ strong {
   margin: .75rem auto 0;
 }
 
+/* Section heading — remplace le duo label + h2 */
+.section-heading {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+
+/* Sur fond navy (CTA, méthode) */
+.final-cta .section-heading,
+.methode-section .section-heading {
+  color: #fff;
+}
+
+/* Version em en italique dorée */
+.section-heading em {
+  color: var(--gold);
+  font-style: italic;
+}
+
 /* ── LAYOUT ── */
 .container {
   max-width: var(--max-w);

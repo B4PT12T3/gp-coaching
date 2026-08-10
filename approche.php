@@ -11,8 +11,7 @@
     </div>
 
     <div class="approach-content">
-      <span class="label fade-up">Mon parcours</span>
-      <h2 class="fade-up delay-1">Mon Parcours,<br>ma <em>conviction</em></h2>
+      <span class="section-heading fade-up">Mon parcours, ma <em>conviction</em></span>
       <div class="divider fade-up delay-2"></div>
       <p class="fade-up delay-2">
         Fort de mon parcours professionnel et personnel, j'accompagne des personnes confrontées à des périodes de transition, de décision ou de transformation.
@@ -32,8 +31,7 @@
 <!-- ══ MA PHILOSOPHIE ══ -->
 <section style="background:var(--bg-alt);padding:var(--section-py) var(--gutter)">
   <div class="container text-center">
-    <span class="label fade-up">Ma philosophie</span>
-    <h2 class="fade-up delay-1">Quatre piliers pour avancer</h2>
+    <span class="section-heading fade-up">Ma philosophie</span>
     <div class="philo-grid">
       <div class="philo-step fade-up">
         <div class="philo-icon hv-glow"><i data-lucide="search"></i></div>
@@ -82,8 +80,7 @@
 <!-- ══ MÉTHODE GPACE ══ -->
 <section class="methode-section">
   <div class="container text-center">
-    <span class="label fade-up">La méthode GP</span>
-    <h2 class="methode-title fade-up delay-1">
+    <h2 class="methode-title section-heading fade-up">
       <em>Grandir</em> avec <em>Perspective</em>
     </h2>
     <p class="section-intro fade-up delay-2">
@@ -117,8 +114,7 @@
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="label">Envie d'en savoir plus ?</span>
-    <h2>Parlons de votre situation</h2>
+    <span class="section-heading">Parlons de votre situation</span>
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
