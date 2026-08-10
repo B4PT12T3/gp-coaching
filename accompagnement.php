@@ -105,7 +105,7 @@ $univers = [
 
 <!-- ══ HERO ══ -->
 <section class="accompagner-hero">
-  <span class="section-heading fade-up">Comment je peux vous <em>accompagner</em></span>
+  <span class="section-heading fade-up">Trois univers, un objectif <em>commun</em></span>
   <p class="section-intro fade-up delay-2">Vous aider à avancer avec clarté, confiance et impact.</p>
 </section>
 

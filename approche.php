@@ -28,10 +28,10 @@
 </section>
 
 
-<!-- ══ MA PHILOSOPHIE ══ -->
+<!-- ══ Quatre piliers ══ -->
 <section style="background:var(--bg-alt);padding:var(--section-py) var(--gutter)">
   <div class="container text-center">
-    <span class="section-heading fade-up">Ma philosophie</span>
+    <span class="section-heading fade-up">Quatre piliers pour avancer</span>
     <div class="philo-grid">
       <div class="philo-step fade-up">
         <div class="philo-icon hv-glow"><i data-lucide="search"></i></div>
@@ -81,7 +81,7 @@
 <section class="methode-section">
   <div class="container text-center">
     <h2 class="methode-title section-heading fade-up">
-      <em>Grandir</em> avec <em>Perspective</em>
+      La métohde <em> GP </em>
     </h2>
     <p class="section-intro fade-up delay-2">
       Parce que le coaching consiste à changer de regard sur une situation pour faire émerger de nouvelles possibilités.
