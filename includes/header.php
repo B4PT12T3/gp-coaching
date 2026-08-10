@@ -49,7 +49,7 @@ function nav_active(string $file): string
   <meta property="og:description" content="<?= htmlspecialchars($desc) ?>" />
   <meta property="og:type" content="website" />
   <title><?= htmlspecialchars($title) ?></title>
-  <link rel="stylesheet" href="assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'] . '/assets/css/style.css') ?: time() ?>" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 
@@ -66,7 +66,7 @@ function nav_active(string $file): string
       </div>
       <div class="nav-brand-text">
         <span class="nav-brand-name">GP Coaching</span>
-        <span class="nav-brand-sub">Grandir avec Perspective</span>
+        <span class="nav-brand-sub"><span class="brand-initial">G</span>randir avec <span class="brand-initial">P</span>erspective</span>
       </div>
     </a>
 

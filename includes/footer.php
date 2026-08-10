@@ -36,7 +36,7 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
       </div>
       <div>
         <div class="footer-brand-name">GP Coaching</div>
-        <div class="footer-brand-sub">Grandir avec Perspective</div>
+        <div class="footer-brand-sub"><span class="brand-initial">G</span>randir avec <span class="brand-initial">P</span>erspective</div>
       </div>
     </div>
 
@@ -69,7 +69,7 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
   // Lien Calendly depuis la BDD
   window._calendlyUrl = <?= json_encode(content('global', 'calendly_url', 'https://calendly.com/')) ?>;
 </script>
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 <script>
   // Initialiser les icônes Lucide après le chargement du DOM
   document.addEventListener('DOMContentLoaded', () => {
