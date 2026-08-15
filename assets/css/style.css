@@ -723,8 +723,7 @@ footer {
 .footer-brand-logo {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, .2);
+
   background: rgba(255, 255, 255, .07);
   display: flex;
   align-items: center;
@@ -748,7 +747,7 @@ footer {
   font-size: .58rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--gold-light);
+
 }
 
 .footer-nav {
