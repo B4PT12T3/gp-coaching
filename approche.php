@@ -1,26 +1,34 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/content.php';
+include 'includes/header.php';
+?>
 
 <!-- ══ MON PARCOURS ══ -->
 <section class="approach-hero" style="padding-bottom:var(--section-py)">
   <div class="approach-grid container">
 
     <div class="approach-photo hv-image fade-up">
-      <img
-        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop&crop=faces"
-        alt="Gilles, fondateur de GP Coaching" />
+      <?= img(
+        'approche',
+        'coach_photo',
+        'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop&crop=faces',
+        'Gilles, fondateur de GP Coaching'
+      ) ?>
     </div>
 
     <div class="approach-content">
-      <span class="section-heading fade-up">Mon parcours, ma <em>conviction</em></span>
+      <span class="section-heading fade-up">
+        <?= c('approche', 'parcours_titre', 'Mon parcours, ma conviction') ?>
+      </span>
       <div class="divider fade-up delay-2"></div>
       <p class="fade-up delay-2">
-        Fort de mon parcours professionnel et personnel, j'accompagne des personnes confrontées à des périodes de transition, de décision ou de transformation.
+        <?= c('approche', 'parcours_p1', "Fort de mon parcours professionnel et personnel, j'accompagne des personnes confrontées à des périodes de transition, de décision ou de transformation.") ?>
       </p>
       <p class="fade-up delay-2" style="margin-top:1rem">
-        J'ai constaté que la véritable clé du changement ne réside pas dans les compétences, mais dans la clarté, la confiance et la capacité d'agir avec cohérence.
+        <?= c('approche', 'parcours_p2', "J'ai constaté que la véritable clé du changement ne réside pas dans les compétences, mais dans la clarté, la confiance et la capacité d'agir avec cohérence.") ?>
       </p>
       <p class="fade-up delay-3" style="margin-top:1rem">
-        C'est cette conviction qui m'anime aujourd'hui en mission de coach.
+        <?= c('approche', 'parcours_p3', "C'est cette conviction qui m'anime aujourd'hui en mission de coach.") ?>
       </p>
     </div>
 
@@ -28,10 +36,10 @@
 </section>
 
 
-<!-- ══ Quatre piliers ══ -->
+<!-- ══ MA PHILOSOPHIE ══ -->
 <section style="background:var(--bg-alt);padding:var(--section-py) var(--gutter)">
   <div class="container text-center">
-    <span class="section-heading fade-up">Quatre piliers pour avancer</span>
+    <span class="section-heading fade-up">Ma philosophie</span>
     <div class="philo-grid">
       <div class="philo-step fade-up">
         <div class="philo-icon hv-glow"><i data-lucide="search"></i></div>
@@ -65,12 +73,12 @@
       <div class="mission-card hv-lift fade-up">
         <h4>Ma Mission</h4>
         <h3 style="margin-bottom:1rem">Accompagner les personnes dans les périodes clés</h3>
-        <p>Accompagner les personnes, les entrepreneurs, les dirigeants et les organisations dans les périodes de transition, de développement ou de transformation pour leur permettre de retrouver clarté, équilibre et capacité d'action durable.</p>
+        <p><?= c('approche', 'mission_texte', "Accompagner les personnes, les entrepreneurs, les dirigeants et les organisations dans les périodes de transition, de développement ou de transformation pour leur permettre de retrouver clarté, équilibre et capacité d'action durable.") ?></p>
       </div>
       <div class="mission-card hv-lift fade-up delay-1">
         <h4>Ma Conviction</h4>
         <h3 style="margin-bottom:1rem">Les ressources sont déjà en vous</h3>
-        <p>Chaque personne possède déjà en elle les ressources nécessaires pour évoluer. Mon rôle est de créer les conditions qui lui permettront de les révéler et de les mobiliser.</p>
+        <p><?= c('approche', 'conviction_texte', "Chaque personne possède déjà en elle les ressources nécessaires pour évoluer. Mon rôle est de créer les conditions qui lui permettront de les révéler et de les mobiliser.") ?></p>
       </div>
     </div>
   </div>
@@ -81,7 +89,7 @@
 <section class="methode-section">
   <div class="container text-center">
     <h2 class="methode-title section-heading fade-up">
-      La méthode <em> GP </em>
+      <em>Grandir</em> avec <em>Perspective</em>
     </h2>
     <p class="section-intro fade-up delay-2">
       Parce que le coaching consiste à changer de regard sur une situation pour faire émerger de nouvelles possibilités.
@@ -114,7 +122,7 @@
 <!-- ══ CTA ══ -->
 <section class="final-cta">
   <div class="final-cta-inner fade-up">
-    <span class="section-heading ">Parlons de votre situation</span>
+    <span class="section-heading">Parlons de votre situation</span>
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
