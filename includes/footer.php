@@ -40,12 +40,12 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
       </div>
     </div>
 
-    <nav class="footer-nav">
+    <div class="footer-nav">
       <a href="index.php">Accueil</a>
       <a href="approche.php">Mon Approche</a>
       <a href="accompagnement.php">Accompagnement</a>
       <a href="contact.php">Contact</a>
-    </nav>
+    </div>
 
     <div class="footer-right">
       <?php if (!empty($socials_actifs)): ?>
