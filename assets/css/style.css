@@ -515,6 +515,29 @@ section {
   box-shadow: 0 4px 24px rgba(27, 43, 75, .22);
 }
 
+#main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  height: 74px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+  transition: box-shadow .3s;
+  overflow: hidden;
+}
+
+#main-nav.scrolled {
+  box-shadow: 0 4px 24px rgba(27, 43, 75, .22);
+}
+
 .nav-brand {
   display: flex;
   align-items: center;
@@ -1794,6 +1817,10 @@ footer {
 
   .nav-hamburger {
     display: flex;
+  }
+
+  .footer-nav {
+    display: none;
   }
 
   /* Logo + titre conservés, slogan masqué */
