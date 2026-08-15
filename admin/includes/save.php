@@ -99,6 +99,7 @@ function save_fields_count(string $page, array $fields): array
 function upload_image(string $field_name): array
 {
     $allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    $allowed_ext   = ['jpg' => 'jpg', 'jpeg' => 'jpg', 'png' => 'png', 'webp' => 'webp', 'gif' => 'gif'];
     $max_size      = 5 * 1024 * 1024; // 5 Mo
     $upload_dir    = __DIR__ . '/../../assets/images/';
 
@@ -112,10 +113,22 @@ function upload_image(string $field_name): array
         return ['success' => false, 'error' => "Image trop lourde pour $field_name (max 5 Mo)."];
     }
 
-    // Nom unique sécurisé
-    $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $filename = $field_name . '_' . time() . '.' . strtolower($ext);
+    // Extension normalisée
+    $raw_ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    $ext      = $allowed_ext[$raw_ext] ?? $raw_ext;
+
+    // Nom fixe basé sur la clé du champ — écrase l'ancienne image
+    $filename = $field_name . '.' . $ext;
     $dest     = $upload_dir . $filename;
+
+    // Supprimer l'ancienne image si l'extension a changé
+    // (ex: on remplace un .jpg par un .png)
+    foreach ($allowed_ext as $old_ext) {
+        $old_file = $upload_dir . $field_name . '.' . $old_ext;
+        if ($old_file !== $dest && file_exists($old_file)) {
+            @unlink($old_file);
+        }
+    }
 
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0755, true);
