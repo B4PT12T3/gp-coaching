@@ -54,6 +54,10 @@ function nav_active(string $file): string
   <meta property="og:description" content="<?= htmlspecialchars($desc) ?>" />
   <meta property="og:type" content="website" />
   <title><?= htmlspecialchars($title) ?></title>
+  <!-- Google Fonts — préchargement direct -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" />
   <link rel="stylesheet" href="/assets/css/style.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'] . '/assets/css/style.css') ?: time() ?>" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
@@ -97,4 +101,5 @@ function nav_active(string $file): string
     <a href="accompagnement.php">Accompagnement</a>
     <a href="contact.php">Contact</a>
     <a href="contact.php">Prendre rendez-vous</a>
+
   </div>
