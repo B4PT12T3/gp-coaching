@@ -30,9 +30,9 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
     <div class="footer-brand">
       <div class="footer-brand-logo">
         <img
-          src="/assets/images/LogoBleu.png"
+          src="<?= BASE_URL ?>assets/images/LogoBleu.png"
           alt="GP Coaching logo"
-          style="width:28px;height:28px;object-fit:contain;display:block;filter:brightness(0) invert(1)" />
+          style="width:36px;height:36px;object-fit:contain;display:block" />
       </div>
       <div>
         <div class="footer-brand-name">GP Coaching</div>
