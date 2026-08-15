@@ -5,6 +5,11 @@
  * Inclure en haut de chaque page : <?php include 'includes/header.php'; ?>
  */
 
+// BASE_URL fallback si non défini par la page appelante
+if (!defined('BASE_URL')) {
+  define('BASE_URL', '/');
+}
+
 // Détecter la page active
 $current = basename($_SERVER['PHP_SELF']);
 
@@ -57,12 +62,13 @@ function nav_active(string $file): string
 
   <!-- ══ NAV ══ -->
   <nav id="main-nav">
-    <a class="nav-brand" href="index.php">
+    <a class="nav-brand" href="<?= BASE_URL ?>index.php">
       <div class="nav-brand-logo">
         <img
-          src="/assets/images/LogoBleu.png"
+          src="<?= BASE_URL ?>assets/images/LogoBleu.png"
           alt="GP Coaching logo"
-          style="width:36px;height:36px;object-fit:contain;display:block" />
+          style="width:40px;height:40px;object-fit:contain;display:block"
+          onerror="this.style.display='none'" />
       </div>
       <div class="nav-brand-text">
         <span class="nav-brand-name">GP Coaching</span>
