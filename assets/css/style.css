@@ -241,7 +241,7 @@ strong {
 }
 
 /* Sur fond navy (CTA, méthode) */
-
+.final-cta .section-heading,
 .methode-section .section-heading {
   color: #fff;
 }
@@ -514,6 +514,7 @@ nav.scrolled {
   align-items: center;
   gap: .85rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-brand-logo {
@@ -525,9 +526,17 @@ nav.scrolled {
   flex-shrink: 0;
 }
 
+.nav-brand-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
 .nav-brand-text {
   display: flex;
   flex-direction: column;
+  gap: .15rem;
 }
 
 .nav-brand-name {
@@ -536,13 +545,23 @@ nav.scrolled {
   font-weight: 500;
   color: #fff;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .nav-brand-sub {
   font-size: .58rem;
   letter-spacing: .14em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, .45);
+  white-space: nowrap;
+}
+
+.nav-brand-sub .brand-initial,
+.footer-brand-sub .brand-initial {
   color: var(--gold-light);
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: .05em;
 }
 
 .nav-links {
@@ -1771,6 +1790,24 @@ footer {
 
   .nav-hamburger {
     display: flex;
+  }
+
+  /* Logo + titre conservés, slogan masqué */
+  .nav-brand {
+    display: flex;
+  }
+
+  .nav-brand-logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-brand-name {
+    font-size: .9rem;
+  }
+
+  .nav-brand-sub {
+    display: none;
   }
 
   .hero-content {
