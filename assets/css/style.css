@@ -143,6 +143,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -151,6 +153,7 @@ body {
   color: var(--ink);
   line-height: 1.65;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -500,9 +503,12 @@ section {
   justify-content: space-between;
   padding: 0 var(--gutter);
   height: 74px;
+  width: 100%;
+  box-sizing: border-box;
   background: var(--navy);
   border-bottom: 1px solid rgba(255, 255, 255, .07);
   transition: box-shadow .3s;
+  overflow: hidden;
 }
 
 #main-nav.scrolled {
@@ -553,16 +559,14 @@ section {
   font-size: .58rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .55);
   white-space: nowrap;
 }
 
 .nav-brand-sub .brand-initial,
 .footer-brand-sub .brand-initial {
   color: var(--gold-light);
-  font-size: 1.1em;
   font-weight: 700;
-  letter-spacing: .05em;
 }
 
 .nav-links {
