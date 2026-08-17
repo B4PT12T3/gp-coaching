@@ -14,7 +14,7 @@ include 'includes/header.php';
     ) ?>
   </div>
   <div class="hero-content">
-    <span class="label fade-up">Coaching de carrière &amp; de vie</span>
+    <span class="label fade-up">Coach de vie et Coach professionnel dans les Hauts-de-France</span>
     <h1 class="fade-up delay-1">
       <?= nl2br(c('accueil', 'hero_titre', "Retrouvez la clarté pour avancer avec confiance.")) ?>
     </h1>

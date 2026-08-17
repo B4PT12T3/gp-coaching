@@ -97,7 +97,7 @@ function nav_active(string $file): string
   <div class="mobile-nav" id="mobile-nav">
     <button class="mobile-nav-close" id="mobile-nav-close">Fermer ✕</button>
     <a href="index.php">Accueil</a>
-    <a href="approche.php">Mon Approche</a>
+    <a href="approche.php"> Mon approche du coaching et la Méthode GPACE</a>
     <a href="accompagnement.php">Accompagnement</a>
     <a href="contact.php">Contact</a>
     <a href="contact.php">Prendre rendez-vous</a>

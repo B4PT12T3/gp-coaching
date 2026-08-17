@@ -20,7 +20,7 @@ $socials = [
 $socials_actifs = array_filter($socials, fn($s) => !empty($s['url']));
 
 // Fallback si aucun réseau configuré : afficher # pour que ce ne soit pas vide
-$copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et sa région · Tous droits réservés');
+$copyright = content('global', 'footer_copyright', 'GP Coaching · Basé à Béthune, j’accompagne les particuliers, entrepreneurs, dirigeants et entreprises dans le Nord, le Pas-de-Calais et plus largement dans les Hauts-de-France, en présentiel ou en visioconférence · Tous droits réservés');
 ?>
 
 <!-- ══ FOOTER ══ -->
@@ -42,7 +42,7 @@ $copyright = content('global', 'footer_copyright', 'GP Coaching · Béthune et s
 
     <div class="footer-nav">
       <a href="index.php">Accueil</a>
-      <a href="approche.php">Mon Approche</a>
+      <a href="approche.php"> Mon approche du coaching et la Méthode GPACE</a>
       <a href="accompagnement.php">Accompagnement</a>
       <a href="contact.php">Contact</a>
     </div>

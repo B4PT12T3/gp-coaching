@@ -88,6 +88,7 @@ include 'includes/header.php';
 <!-- ══ MÉTHODE GPACE ══ -->
 <section class="methode-section">
   <div class="container text-center">
+    <span class="section-heading fade-up">Ma Méthode</span>
     <h2 class="methode-title section-heading fade-up">
       <em>Grandir</em> avec <em>Perspective</em>
     </h2>
@@ -98,7 +99,7 @@ include 'includes/header.php';
     <div class="methode-steps">
       <?php
       $etapes = [
-        ['G', 'Grandir par la connaissance de soi',  'Comprendre qui vous êtes.'],
+        ['G', 'Grandir par la connaissance de soi',  'Comprendre où vous en êtes.'],
         ['P', 'Prendre conscience',                   'Porter un regard nouveau sur votre situation.'],
         ['A', 'Agir',                                 'Passer de la réflexion à l\'action.'],
         ['C', 'Consolider',                           'Ancrer les progrès et ajuster.'],

@@ -135,7 +135,7 @@ function old(string $key, array $data): string
                   <?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>
                 </a>
               </strong>
-              <span>Réponse sous 24h</span>
+              <span>Réponse dans les plus brefs délais</span>
             </div>
           </div>
 
