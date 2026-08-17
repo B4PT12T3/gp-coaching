@@ -20,7 +20,7 @@ $socials = [
 $socials_actifs = array_filter($socials, fn($s) => !empty($s['url']));
 
 // Fallback si aucun réseau configuré : afficher # pour que ce ne soit pas vide
-$copyright = content('global', 'footer_copyright', 'GP Coaching · Basé à Béthune, j’accompagne les particuliers, entrepreneurs, dirigeants et entreprises dans le Nord, le Pas-de-Calais et plus largement dans les Hauts-de-France, en présentiel ou en visioconférence · Tous droits réservés');
+$copyright = content('global', 'footer_copyright', "GP Coaching · Basé à Béthune, j'accompagne les particuliers, entrepreneurs, dirigeants et entreprises dans le Nord, le Pas-de-Calais et plus largement dans les Hauts-de-France, en présentiel ou en visioconférence · Tous droits réservés");
 ?>
 
 <!-- ══ FOOTER ══ -->
