@@ -14,7 +14,7 @@ include 'includes/header.php';
     ) ?>
   </div>
   <div class="hero-content">
-    <span class="label fade-up">Coach de vie et Coach professionnel dans les Hauts-de-France</span>
+    <span class="label fade-up">Coaching de carrière &amp; de vie</span>
     <h1 class="fade-up delay-1">
       <?= nl2br(c('accueil', 'hero_titre', "Retrouvez la clarté pour avancer avec confiance.")) ?>
     </h1>
@@ -49,22 +49,22 @@ include 'includes/header.php';
       // Couleurs officielles des univers
       $univers = [
         1 => [
-          'icon'     => '<i data-lucide="sprout"></i>',
-          'color'    => '#667264',
-          'link'     => 'equilibre',
-          'delay'    => '',
+          'logo'  => 'E_D_P2.png',
+          'color' => '#667264',
+          'link'  => 'equilibre',
+          'delay' => '',
         ],
         2 => [
-          'icon'     => '<i data-lucide="compass"></i>',
-          'color'    => '#142739',
-          'link'     => 'leadership',
-          'delay'    => ' delay-1',
+          'logo'  => 'L_P2.png',
+          'color' => '#142739',
+          'link'  => 'leadership',
+          'delay' => ' delay-1',
         ],
         3 => [
-          'icon'     => '<i data-lucide="diamond"></i>',
-          'color'    => '#C17501',
-          'link'     => 'signature',
-          'delay'    => ' delay-2',
+          'logo'  => 'Signature_1.png',
+          'color' => '#C17501',
+          'link'  => 'signature',
+          'delay' => ' delay-2',
         ],
       ];
       foreach ($univers as $n => $u):
@@ -80,9 +80,10 @@ include 'includes/header.php';
             <?= img('accueil', "univers{$n}_image", $default_imgs[$n], c('accueil', "univers{$n}_titre", "Univers $n")) ?>
           </div>
           <div class="univers-card-body">
-            <div class="univers-icon hv-glow"
-              style="background:<?= $u['color'] ?>18;border-color:<?= $u['color'] ?>44">
-              <span style="color:<?= $u['color'] ?>"><?= $u['icon'] ?></span>
+            <div class="univers-icon hv-glow">
+              <img src="<?= BASE_URL ?>assets/images/<?= $u['logo'] ?>"
+                alt="Univers <?= $n ?>"
+                style="width:46px;height:46px;object-fit:contain;display:block" />
             </div>
             <h3><?= c('accueil', "univers{$n}_titre", "Univers $n") ?></h3>
             <p><?= c('accueil', "univers{$n}_texte", '') ?></p>

@@ -9,6 +9,7 @@ $univers = [
     'id'       => 'equilibre',
     'couleur'  => '#667264',
     'icon'     => 'sprout',
+    'logo'     => 'E_D_P2.png',
     'label'    => 'Univers 01',
     'titre'    => content('accompagnement', 'u1_titre',   'Équilibre & Développement personnel'),
     'accroche' => content('accompagnement', 'u1_accroche', 'Retrouver son équilibre, se reconnecter à l\'essentiel'),
@@ -26,6 +27,7 @@ $univers = [
     'id'       => 'leadership',
     'couleur'  => '#142739',
     'icon'     => 'compass',
+    'logo'     => 'L_P2.png',
     'label'    => 'Univers 02',
     'titre'    => content('accompagnement', 'u2_titre',   'Leadership & Performance'),
     'accroche' => content('accompagnement', 'u2_accroche', 'Développer votre leadership et votre impact'),
@@ -65,6 +67,7 @@ $univers = [
     'id'       => 'signature',
     'couleur'  => '#C17501',
     'icon'     => 'diamond',
+    'logo'     => 'Signature_1.png',
     'label'    => 'Univers 03',
     'titre'    => content('accompagnement', 'u3_titre',   'Signature'),
     'accroche' => content('accompagnement', 'u3_accroche', 'Accompagnements premium et sur-mesure'),
@@ -105,7 +108,7 @@ $univers = [
 
 <!-- ══ HERO ══ -->
 <section class="accompagner-hero">
-  <span class="section-heading fade-up">Trois univers, un objectif <em>commun</em></span>
+  <span class="section-heading fade-up">Comment je peux vous <em>accompagner</em></span>
   <p class="section-intro fade-up delay-2">Vous aider à avancer avec clarté, confiance et impact.</p>
 </section>
 
@@ -120,8 +123,10 @@ $univers = [
         <button class="ua-header" onclick="toggleUnivers(<?= $n ?>)"
           style="--u-color: <?= $u['couleur'] ?>">
           <div class="ua-header-left">
-            <div class="ua-icon" style="background:<?= $u['couleur'] ?>1a; border-color:<?= $u['couleur'] ?>44">
-              <i data-lucide="<?= $u['icon'] ?>" style="stroke:<?= $u['couleur'] ?>"></i>
+            <div class="ua-icon">
+              <img src="<?= BASE_URL ?>assets/images/<?= $u['logo'] ?>"
+                alt="<?= htmlspecialchars($u['titre']) ?>"
+                style="width:52px;height:52px;object-fit:contain;display:block" />
             </div>
             <div class="ua-header-text">
               <span class="ua-label"><?= htmlspecialchars($u['label']) ?></span>
