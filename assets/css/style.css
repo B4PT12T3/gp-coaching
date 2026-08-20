@@ -387,8 +387,8 @@ section {
   box-shadow: 0 0 0 4px var(--gold-dim), 0 4px 16px rgba(184, 144, 90, .2);
   transform: scale(1.06);
 }
-
-NAV============================================================*/ #main-nav {
+/*NAV============================================================*/ 
+#main-nav {
   position: fixed;
   top: 0;
   left: 0;
