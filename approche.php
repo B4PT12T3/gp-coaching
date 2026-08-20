@@ -88,6 +88,7 @@ include 'includes/header.php';
 <!-- ══ MÉTHODE GPACE ══ -->
 <section class="methode-section">
   <div class="container text-center">
+    <span class="section-heading fade-up">Ma Méthode</span>
     <h2 class="methode-title section-heading fade-up">
       <em>Grandir</em> avec <em>Perspective</em>
     </h2>
