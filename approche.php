@@ -88,7 +88,6 @@ include 'includes/header.php';
 <!-- ══ MÉTHODE GPACE ══ -->
 <section class="methode-section">
   <div class="container text-center">
-    <span class="section-heading fade-up">Ma Méthode</span>
     <h2 class="methode-title section-heading fade-up">
       <em>Grandir</em> avec <em>Perspective</em>
     </h2>
@@ -99,7 +98,7 @@ include 'includes/header.php';
     <div class="methode-steps">
       <?php
       $etapes = [
-        ['G', 'Grandir par la connaissance de soi',  'Comprendre où vous en êtes.'],
+        ['G', 'Grandir par la connaissance de soi',  'Comprendre qui vous êtes.'],
         ['P', 'Prendre conscience',                   'Porter un regard nouveau sur votre situation.'],
         ['A', 'Agir',                                 'Passer de la réflexion à l\'action.'],
         ['C', 'Consolider',                           'Ancrer les progrès et ajuster.'],
@@ -127,7 +126,7 @@ include 'includes/header.php';
     <div class="divider center"></div>
     <p>Un premier échange de 30 minutes pour comprendre où vous en êtes et voir comment je peux vous accompagner.</p>
     <div class="final-cta-actions">
-      <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
+      <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
       <a class="btn btn-outline" href="accompagnement.php">Voir les accompagnements</a>
     </div>
   </div>

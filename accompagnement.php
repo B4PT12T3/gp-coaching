@@ -161,7 +161,7 @@ $univers = [
                     <?php endforeach; ?>
                   </ul>
                   <a class="btn ua-cta" style="background:<?= $u['couleur'] ?>;color:#fff"
-                    href="contact.php">
+                    onclick="openBooking()" href="#">
                     Commencer ce parcours
                   </a>
                 </div>
@@ -197,7 +197,7 @@ $univers = [
                       <?php endforeach; ?>
                     </ul>
                     <a class="btn ua-cta" style="background:<?= $u['couleur'] ?>;color:#fff"
-                      href="contact.php">
+                      onclick="openBooking()" href="#">
                       Commencer ce parcours
                     </a>
                   </div>
@@ -268,7 +268,7 @@ $univers = [
     <div class="divider center"></div>
     <p>Sur votre situation et vos objectifs. Je vous réponds personnellement.</p>
     <div class="final-cta-actions">
-      <a class="btn btn-navy" href="contact.php">Prendre rendez-vous</a>
+      <button class="btn btn-navy" onclick="openBooking()">Prendre rendez-vous</button>
       <a class="btn btn-outline" href="contact.php">Me contacter</a>
     </div>
   </div>

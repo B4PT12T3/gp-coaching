@@ -135,7 +135,7 @@ function old(string $key, array $data): string
                   <?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>
                 </a>
               </strong>
-              <span>Réponse dans les plus brefs délais</span>
+              <span>Réponse sous 24h</span>
             </div>
           </div>
 
@@ -243,7 +243,7 @@ function old(string $key, array $data): string
       <div class="rdv-box fade-up delay-2">
         <h3>Réservez votre premier rendez-vous</h3>
         <p>Un premier échange pour faire le point sur votre situation et vos objectifs.</p>
-        <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
+        <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
       </div>
 
     </div>

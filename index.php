@@ -22,7 +22,7 @@ include 'includes/header.php';
       <?= c('accueil', 'hero_sous_titre', "J'accompagne les personnes, les entrepreneurs, les dirigeants et les organisations à retrouver la clarté, de l'équilibre et la capacité d'agir durablement.") ?>
     </p>
     <div class="hero-cta fade-up delay-3">
-      <a class="btn btn-gold" href="contact.php">Prendre rendez-vous</a>
+      <button class="btn btn-gold" onclick="openBooking()">Prendre rendez-vous</button>
     </div>
   </div>
 </section>
@@ -134,7 +134,7 @@ include 'includes/header.php';
     <div class="divider center"></div>
     <p>Un premier échange pour faire le point sur votre situation et vos objectifs — sans engagement.</p>
     <div class="final-cta-actions">
-      <a class="btn btn-navy" href="contact.php">Prendre rendez-vous</a>
+      <button class="btn btn-navy" onclick="openBooking()">Prendre rendez-vous</button>
       <a class="btn btn-outline" href="approche.php">Découvrir mon approche</a>
     </div>
   </div>
