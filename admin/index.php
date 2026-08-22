@@ -1,9 +1,9 @@
 <?php
 session_start();
 define('BASE_URL', '../../');
-require_once __DIR__ . '/../includes/auth.php';
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/save.php';
+require_once __DIR__ . '/../admin/includes/auth.php';
+require_once __DIR__ . '/../admin/includes/db.php';
+require_once __DIR__ . '/../admin/includes/save.php';
 
 $page   = 'accueil';
 $msg    = '';
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $rows = db()->query("SELECT cle, valeur FROM gp_content WHERE page = '$page'")->fetchAll();
 $vals = array_column($rows, 'valeur', 'cle');
 
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../admin/includes/header.php';
 ?>
 
 <h1 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.5rem">
@@ -206,4 +206,4 @@ require_once __DIR__ . '/../includes/header.php';
   }
 </script>
 
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/..//admin/includes/footer.php'; ?>
