@@ -1084,7 +1084,6 @@ footer {
 }
 
 .methode-steps::before {
-  content: '';
   position: absolute;
   top: 27px;
   left: 10%;
