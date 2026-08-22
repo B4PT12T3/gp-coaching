@@ -38,6 +38,40 @@ include 'includes/header.php';
 </div>
 
 <!-- ══ TROIS UNIVERS ══ -->
+<!-- ══ SECTION MIS EN AVANT ══ -->
+<section class="mise-en-avant">
+  <div class="container">
+    <div class="mea-grid fade-up">
+
+      <div class="mea-img hv-image">
+        <?= img(
+          'accueil',
+          'mea_image',
+          'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+          c('accueil', 'mea_titre', 'Une approche structurée')
+        ) ?>
+      </div>
+
+      <div class="mea-content">
+        <div class="mea-icon">
+          <i data-lucide="compass" style="stroke:var(--gold);width:28px;height:28px"></i>
+        </div>
+        <h2 class="mea-titre">
+          <?= c('accueil', 'mea_titre', 'Une approche structurée pour passer de la réflexion à l\'action') ?>
+        </h2>
+        <div class="divider"></div>
+        <p class="mea-texte">
+          <?= c('accueil', 'mea_texte', 'Prendre du recul, clarifier vos priorités, identifier vos leviers d\'action et avancer avec justesse.') ?>
+        </p>
+        <a class="link-arrow" href="accompagnement.php">
+          En savoir plus <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="univers-section">
   <div class="container">
     <div class="text-center">
