@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../admin/includes/db.php';
+require_once __DIR__ . '/admin/includes/db.php';
 $stmt = db()->prepare("INSERT IGNORE INTO gp_content (page, cle, valeur, type, label) VALUES (?, ?, ?, ?, ?)");
 $cles = [
     ['accueil', 'mea_image', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80', 'image',    'Section mise en avant — Image'],
