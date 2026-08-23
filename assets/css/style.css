@@ -535,6 +535,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 2.5rem;
 }
 
@@ -1084,7 +1085,6 @@ footer {
 }
 
 .methode-steps::before {
-  content: '';
   position: absolute;
   top: 27px;
   left: 10%;
@@ -1880,4 +1880,74 @@ footer {
 
 .parcours-step:hover .parcours-dot .lucide {
   stroke: #fff;
+}
+
+/* ============================================================
+   SECTION MISE EN AVANT — index.php
+   ============================================================ */
+.mise-en-avant {
+  background: var(--bg-card);
+  padding: var(--section-py) var(--gutter);
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.mea-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.mea-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--navy-border);
+  box-shadow: 0 8px 32px rgba(27, 43, 75, .08);
+}
+
+.mea-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mea-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mea-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--gold-dim);
+  border: 1.5px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mea-titre {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.mea-texte {
+  font-size: .92rem;
+  color: var(--ink-60);
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .mea-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
