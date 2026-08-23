@@ -105,6 +105,50 @@ $univers = [
   <p class="section-intro fade-up delay-2">Vous aider à avancer avec clarté, confiance et impact.</p>
 </section>
 
+<!-- ══ SECTION INTRO ══ -->
+<section class="univers-section-full" id="intro" style="background:var(--bg-card)">
+  <div class="container">
+    <div class="usf-grid img-left fade-up">
+
+      <div class="usf-img hv-image">
+        <img src="<?= content('accompagnement', 'intro_image', 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80') ?>"
+          alt="Accompagnement GP Coaching" />
+      </div>
+
+      <div class="usf-content">
+        <div class="usf-sous-header">
+          <i data-lucide="compass"
+            style="stroke:var(--gold);width:22px;height:22px;flex-shrink:0"></i>
+          <span class="usf-sous-label" style="color:var(--gold)">
+            <?= c('accompagnement', 'intro_label', 'Une approche sur-mesure') ?>
+          </span>
+        </div>
+        <h3><?= c('accompagnement', 'intro_titre', 'Chaque accompagnement commence par une écoute approfondie de votre situation') ?></h3>
+        <ul class="usf-points">
+          <?php foreach (
+            [
+              c('accompagnement', 'intro_p1', 'Un premier échange gratuit pour cerner vos besoins et vos objectifs'),
+              c('accompagnement', 'intro_p2', 'Un parcours construit autour de vous, de votre rythme et de votre contexte'),
+              c('accompagnement', 'intro_p3', 'Des séances en présentiel ou en visioconférence, partout en France'),
+              c('accompagnement', 'intro_p4', 'Un suivi régulier pour ancrer les progrès dans la durée'),
+            ] as $point
+          ): ?>
+            <li>
+              <i data-lucide="check" style="stroke:var(--gold)"></i>
+              <?= $point ?>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+        <button class="btn usf-cta" onclick="openBooking()"
+          style="background:var(--gold);color:#fff">
+          <?= c('accompagnement', 'intro_cta', 'Réserver un premier échange') ?>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ SECTIONS UNIVERS ══ -->
 <?php foreach ($univers as $n => $u):
   $bg = $n % 2 === 0 ? 'var(--bg-alt)' : 'var(--bg-base)';

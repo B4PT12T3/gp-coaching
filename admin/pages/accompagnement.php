@@ -10,6 +10,14 @@ $msg    = '';
 $errors = [];
 
 $fields = [
+  'intro_image' => ['type' => 'image',   'label' => 'Intro — Image'],
+  'intro_label' => ['type' => 'text',    'label' => 'Intro — Étiquette'],
+  'intro_titre' => ['type' => 'text',    'label' => 'Intro — Titre'],
+  'intro_p1'    => ['type' => 'text',    'label' => 'Intro — Point 1'],
+  'intro_p2'    => ['type' => 'text',    'label' => 'Intro — Point 2'],
+  'intro_p3'    => ['type' => 'text',    'label' => 'Intro — Point 3'],
+  'intro_p4'    => ['type' => 'text',    'label' => 'Intro — Point 4'],
+  'intro_cta'   => ['type' => 'text',    'label' => 'Intro — Texte bouton'],
   'u1_titre' => ['type' => 'text', 'label' => 'U1 — Titre'],
   'u1_accroche' => ['type' => 'text', 'label' => 'U1 — Accroche'],
   'u1_image' => ['type' => 'image', 'label' => 'U1 — Image'],
@@ -93,6 +101,27 @@ function fp(string $prefix, array $v): void
 
 <form method="POST" enctype="multipart/form-data">
   <?= csrf_field() ?>
+
+  <!-- ══ SECTION INTRO ══ -->
+  <div class="card">
+    <div class="card-header" style="border-left:4px solid var(--gold)">
+      <span class="card-header-icon">◈</span>
+      <h2>Section d'introduction (bandeau)</h2>
+    </div>
+    <div class="card-body">
+      <?php ft('intro_label', $vals, 'Étiquette (ex: Une approche sur-mesure)'); ?>
+      <?php ft('intro_titre', $vals, 'Titre'); ?>
+      <?php fi('intro_image', $vals, 'Image'); ?>
+      <div style="margin-top:1rem">
+        <div class="field"><label style="color:var(--ink)">Points</label></div>
+        <?php ft('intro_p1', $vals, 'Point 1'); ?>
+        <?php ft('intro_p2', $vals, 'Point 2'); ?>
+        <?php ft('intro_p3', $vals, 'Point 3'); ?>
+        <?php ft('intro_p4', $vals, 'Point 4'); ?>
+      </div>
+      <?php ft('intro_cta', $vals, 'Texte du bouton Calendly'); ?>
+    </div>
+  </div>
 
   <!-- ══ UNIVERS 1 ══ -->
   <div class="card">

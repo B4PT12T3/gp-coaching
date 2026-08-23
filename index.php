@@ -63,7 +63,7 @@ include 'includes/header.php';
         <p class="mea-texte">
           <?= c('accueil', 'mea_texte', 'Prendre du recul, clarifier vos priorités, identifier vos leviers d\'action et avancer avec justesse.') ?>
         </p>
-        <a class="link-arrow" href="accompagnement.php">
+        <a class="link-arrow" href="accompagnement.php#intro">
           En savoir plus <span>→</span>
         </a>
       </div>
