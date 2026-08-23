@@ -67,6 +67,14 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
 
   </div>
   <p class="footer-copy">© <?= date('Y') ?> <?= htmlspecialchars($copyright) ?></p>
+  <p class="footer-copy" style="margin-top:.5rem">
+    <a href="<?= BASE_URL ?>rgpd.php"
+      style="color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s"
+      onmouseover="this.style.color='rgba(255,255,255,.6)'"
+      onmouseout="this.style.color='rgba(255,255,255,.3)'">
+      Politique de confidentialité & RGPD
+    </a>
+  </p>
 </footer>
 
 <script>

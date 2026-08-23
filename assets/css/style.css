@@ -1191,10 +1191,6 @@ footer {
   text-align: center;
   padding: 0 1rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .75rem;
 }
 
 .parcours-step::after {
@@ -1219,7 +1215,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   font-size: 1rem;
   transition: background .25s, border-color .25s, transform .25s var(--ease);
 }
@@ -1602,12 +1598,8 @@ footer {
   }
 
   .nav-links,
-  .nav-social {
-    display: none;
-  }
-
   .nav-hamburger {
-    display: flex;
+    display: none;
   }
 
   .footer-nav {
@@ -1950,4 +1942,68 @@ footer {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+/* ============================================================
+   PAGE RGPD
+   ============================================================ */
+.rgpd-hero {
+  padding-top: 120px;
+  padding-bottom: 3rem;
+  background: var(--bg-base);
+}
+
+.rgpd-content {
+  background: var(--bg-alt);
+  padding: var(--section-py) var(--gutter);
+}
+
+.rgpd-inner {
+  max-width: 780px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--navy-border);
+  padding: 3rem;
+}
+
+.rgpd-inner h2 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin: 2rem 0 .75rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.rgpd-inner h2:first-child {
+  margin-top: 0;
+}
+
+.rgpd-inner h3 {
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 1.25rem 0 .5rem;
+}
+
+.rgpd-inner p {
+  color: var(--ink-60);
+  font-size: .9rem;
+  line-height: 1.8;
+  margin-bottom: .75rem;
+}
+
+.rgpd-inner ul {
+  margin-left: 1.5rem;
+  margin-bottom: .75rem;
+}
+
+.rgpd-inner ul li {
+  color: var(--ink-60);
+  font-size: .9rem;
+  line-height: 1.8;
+  margin-bottom: .25rem;
+}
+
+.rgpd-inner a {
+  color: var(--gold);
 }
