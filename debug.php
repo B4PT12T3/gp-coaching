@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../admin/includes/db.php';
+require_once __DIR__ . '/admin/includes/db.php';
 $stmt = db()->prepare("INSERT IGNORE INTO gp_content (page, cle, valeur, type, label) VALUES (?, ?, ?, ?, ?)");
 $default = '<h2>1. Responsable du traitement</h2>
 <p>GP Coaching — Gilles Petitprez<br>Béthune, Hauts-de-France<br>Email : gilles@gpcoaching.fr</p>
