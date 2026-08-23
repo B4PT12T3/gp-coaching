@@ -13,7 +13,7 @@ include 'includes/header.php';
 </section>
 
 <section class="rgpd-content">
-    <div class="container rgpd-inner">
+    <div class="container rgpd-inner fade-up visible">
         <?= content('rgpd', 'contenu', '<p>Contenu à remplir depuis le panel admin.</p>') ?>
     </div>
 </section>

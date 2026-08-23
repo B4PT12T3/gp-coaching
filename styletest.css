@@ -387,7 +387,8 @@ section {
     box-shadow: 0 0 0 4px var(--gold-dim), 0 4px 16px rgba(184, 144, 90, .2);
     transform: scale(1.06);
 }
-/*NAV============================================================*/ 
+
+/*NAV============================================================*/
 #main-nav {
     position: fixed;
     top: 0;
@@ -534,6 +535,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 2.5rem;
 }
 
@@ -731,6 +733,17 @@ footer {
     margin-top: 1.5rem;
     line-height: 1.75;
     font-weight: 300;
+}
+
+/* Label hero = même taille/style que hero-sub */
+.hero-content .label {
+    font-size: 1rem;
+    letter-spacing: .04em;
+    text-transform: none;
+    font-weight: 300;
+    color: rgba(255, 255, 255, .7);
+    font-family: var(--sans);
+    margin-bottom: .75rem;
 }
 
 .hero-cta {
@@ -1072,7 +1085,6 @@ footer {
 }
 
 .methode-steps::before {
-    content: '';
     position: absolute;
     top: 27px;
     left: 10%;
@@ -1587,7 +1599,7 @@ footer {
 
     .nav-links,
     .nav-hamburger {
-        display: flex;
+        display: none;
     }
 
     .footer-nav {
@@ -1637,214 +1649,123 @@ footer {
 }
 
 /* ============================================================
-   ACCORDÉONS UNIVERS — accompagnement.php
+   SECTIONS UNIVERS PLEIN FORMAT (accompagnement.php)
    ============================================================ */
-.univers-accordeon-section {
-    background: var(--bg-alt);
+.univers-section-full {
     padding: var(--section-py) var(--gutter);
 }
 
-.univers-accordeon-section .container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/* ── Item accordéon ── */
-.ua-item {
-    background: var(--bg-card);
-    border: 1px solid rgba(30, 26, 20, .1);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: box-shadow .3s var(--ease);
-}
-
-.ua-item.open {
-    box-shadow: 0 8px 40px rgba(30, 26, 20, .1);
-}
-
-.ua-item.open .ua-chevron .lucide {
-    transform: rotate(180deg);
-}
-
-/* ── Header bouton ── */
-.ua-header {
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
+.usf-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.75rem 2rem;
     gap: 1.5rem;
-    text-align: left;
-    transition: background .25s;
-    border-left: 4px solid var(--u-color, var(--gold));
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--navy-border);
 }
 
-.ua-header:hover {
-    background: var(--bg-alt);
-}
-
-.ua-item.open .ua-header {
-    background: var(--bg-alt);
-}
-
-.ua-header-left {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex: 1;
-}
-
-.ua-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid;
-    transition: transform .25s var(--ease);
-}
-
-.ua-header:hover .ua-icon {
-    transform: scale(1.08);
-}
-
-.ua-icon .lucide {
-    width: 22px;
-    height: 22px;
-}
-
-.ua-header-text {
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
-}
-
-.ua-label {
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--u-color, var(--gold));
-}
-
-.ua-titre {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.2;
-}
-
-.ua-accroche {
-    font-size: .82rem;
-    color: var(--ink-60);
-    font-weight: 300;
-    font-style: italic;
-}
-
-.ua-chevron .lucide {
-    width: 20px;
-    height: 20px;
-    stroke: var(--ink-60);
-    transition: transform .35s var(--ease);
-    flex-shrink: 0;
-}
-
-/* ── Body accordéon ── */
-.ua-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .5s var(--ease);
-}
-
-.ua-body-inner {
-    border-top: 1px solid rgba(30, 26, 20, .08);
-}
-
-/* ── Parcours card ── */
-.ua-parcours {
+.usf-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
     align-items: center;
-    padding: 2.5rem 2rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
 }
 
-.ua-sous-separator {
-    border-top: 1px solid rgba(30, 26, 20, .07);
+.usf-grid.img-right .usf-img {
+    order: 2;
 }
 
-.ua-parcours-img {
+.usf-grid.img-right .usf-content {
+    order: 1;
+}
+
+.usf-sous-sep {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--navy-border);
+}
+
+.usf-img {
+    position: relative;
     border-radius: var(--radius);
-    overflow: hidden;
+    overflow: visible;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(30, 26, 20, .1);
-    box-shadow: 0 4px 20px rgba(30, 26, 20, .07);
+    border: 1px solid var(--navy-border);
+    box-shadow: 0 12px 40px rgba(27, 43, 75, .1);
 }
 
-.ua-parcours-img img {
+.usf-img>img:first-child {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: var(--radius);
 }
 
-.ua-parcours-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.ua-sous-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: .25rem;
-}
-
-.ua-sous-icon {
-    width: 40px;
-    height: 40px;
+.usf-img-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--bg-card);
     border-radius: 50%;
-    flex-shrink: 0;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(27, 43, 75, .15);
+    border: 1px solid var(--navy-border);
+}
+
+.usf-label {
+    display: block;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.usf-titre {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: .75rem;
+}
+
+.usf-accroche {
+    font-size: 1rem;
+    color: var(--ink-60);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.usf-sous-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: .75rem;
+    margin-bottom: .75rem;
 }
 
-.ua-sous-icon .lucide {
-    width: 18px;
-    height: 18px;
-}
-
-.ua-sous-label {
-    font-size: .68rem;
+.usf-sous-label {
+    font-size: .72rem;
     font-weight: 600;
     letter-spacing: .12em;
     text-transform: uppercase;
-    margin-bottom: .2rem;
 }
 
-.ua-parcours-content h3 {
-    color: var(--ink);
-    font-size: 1.15rem;
-    line-height: 1.3;
+.usf-content h3 {
+    margin-bottom: 1.25rem;
 }
 
-/* ── Points liste ── */
-.ua-points {
+.usf-points {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: .65rem;
+    margin-bottom: 2rem;
 }
 
-.ua-points li {
+.usf-points li {
     display: flex;
     align-items: flex-start;
     gap: .75rem;
@@ -1853,44 +1774,253 @@ footer {
     line-height: 1.55;
 }
 
-.ua-points li .lucide {
+.usf-points li .lucide {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
     margin-top: .15rem;
 }
 
-/* ── CTA ── */
-.ua-cta {
-    align-self: flex-start;
-    margin-top: .5rem;
+.usf-cta {
     box-shadow: 0 4px 18px rgba(30, 26, 20, .15);
     transition: transform .25s var(--ease), box-shadow .25s, filter .25s;
 }
 
-.ua-cta:hover {
+.usf-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(30, 26, 20, .2);
     filter: brightness(1.08);
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-    .ua-header {
-        padding: 1.25rem;
-    }
-
-    .ua-accroche {
-        display: none;
-    }
-
-    .ua-parcours {
+/* Responsive */
+@media (max-width: 900px) {
+    .usf-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem;
+        gap: 2.5rem;
     }
 
-    .ua-parcours-img {
-        aspect-ratio: 16/9;
+    .usf-grid.img-right .usf-img,
+    .usf-grid.img-right .usf-content {
+        order: unset;
     }
+
+    .usf-img-badge {
+        bottom: -14px;
+        right: -14px;
+    }
+}
+
+/* ============================================================
+   MÉTHODE GPACE — titre "Ma Méthode" + "avec" en blanc
+   ============================================================ */
+.methode-pre-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    font-style: normal;
+}
+
+.methode-avec {
+    color: #fff;
+    font-style: normal;
+    font-size: inherit;
+}
+
+/* ============================================================
+   PHILOSOPHIE — icônes même taille que methode-dot (54px)
+   ============================================================ */
+.philo-icon {
+    width: 54px !important;
+    height: 54px !important;
+}
+
+.philo-icon .lucide {
+    width: 26px !important;
+    height: 26px !important;
+}
+
+/* ============================================================
+   PARCOURS ADAPTÉ — icônes blanches + hover navy + marges fix
+   ============================================================ */
+.parcours-dot {
+    width: 54px;
+    height: 54px;
+    padding: 4px;
+    overflow: visible;
+}
+
+.parcours-step {
+    padding: 0 1.25rem;
+}
+
+.parcours-dot .lucide {
+    width: 22px;
+    height: 22px;
+    stroke: var(--navy);
+    transition: stroke .25s;
+}
+
+.parcours-step:hover .parcours-dot {
+    background: var(--navy);
+    border-color: var(--navy);
+    transform: scale(1.1);
+    overflow: visible;
+    box-shadow: 0 0 0 6px var(--bg-base);
+}
+
+.parcours-step:hover .parcours-dot .lucide {
+    stroke: #fff;
+}
+
+/* ============================================================
+   SECTION MISE EN AVANT — index.php
+   ============================================================ */
+.mise-en-avant {
+    background: var(--bg-card);
+    padding: var(--section-py) var(--gutter);
+    border-bottom: 1px solid var(--navy-border);
+}
+
+.mea-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.mea-img {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--navy-border);
+    box-shadow: 0 8px 32px rgba(27, 43, 75, .08);
+}
+
+.mea-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mea-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mea-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--gold-dim);
+    border: 1.5px solid var(--gold-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mea-titre {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    color: var(--ink);
+    line-height: 1.25;
+}
+
+.mea-texte {
+    font-size: .92rem;
+    color: var(--ink-60);
+    line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+    .mea-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ============================================================
+   PAGE RGPD
+   ============================================================ */
+.rgpd-hero {
+    padding-top: 120px;
+    padding-bottom: 3rem;
+    background: var(--bg-base);
+}
+
+.rgpd-content {
+    background: var(--bg-alt);
+    padding: var(--section-py) var(--gutter);
+}
+
+.rgpd-inner {
+    max-width: 780px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--navy-border);
+    padding: 3rem;
+}
+
+.rgpd-inner {
+    color: var(--ink);
+}
+
+.rgpd-inner h2 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--navy) !important;
+    margin: 2rem 0 .75rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--gold-border);
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.rgpd-inner h2:first-child {
+    margin-top: 0;
+}
+
+.rgpd-inner h3 {
+    font-size: 1rem;
+    color: var(--ink) !important;
+    margin: 1.25rem 0 .5rem;
+}
+
+.rgpd-inner p {
+    color: var(--ink-60) !important;
+    font-size: .9rem;
+    line-height: 1.8;
+    margin-bottom: .75rem;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.rgpd-inner ul {
+    margin-left: 1.5rem;
+    margin-bottom: .75rem;
+    display: block;
+}
+
+.rgpd-inner ul li {
+    color: var(--ink-60) !important;
+    font-size: .9rem;
+    line-height: 1.8;
+    margin-bottom: .25rem;
+    list-style: disc;
+}
+
+.rgpd-inner a {
+    color: var(--gold);
+}
+
+.rgpd-inner br {
+    display: block;
 }

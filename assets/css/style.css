@@ -1966,13 +1966,21 @@ footer {
   padding: 3rem;
 }
 
+.rgpd-inner {
+  color: var(--ink);
+}
+
 .rgpd-inner h2 {
   font-family: var(--serif);
   font-size: 1.3rem;
-  color: var(--navy);
+  font-weight: 400;
+  color: var(--navy) !important;
   margin: 2rem 0 .75rem;
   padding-bottom: .5rem;
   border-bottom: 1px solid var(--gold-border);
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .rgpd-inner h2:first-child {
@@ -1981,29 +1989,38 @@ footer {
 
 .rgpd-inner h3 {
   font-size: 1rem;
-  color: var(--ink);
+  color: var(--ink) !important;
   margin: 1.25rem 0 .5rem;
 }
 
 .rgpd-inner p {
-  color: var(--ink-60);
+  color: var(--ink-60) !important;
   font-size: .9rem;
   line-height: 1.8;
   margin-bottom: .75rem;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .rgpd-inner ul {
   margin-left: 1.5rem;
   margin-bottom: .75rem;
+  display: block;
 }
 
 .rgpd-inner ul li {
-  color: var(--ink-60);
+  color: var(--ink-60) !important;
   font-size: .9rem;
   line-height: 1.8;
   margin-bottom: .25rem;
+  list-style: disc;
 }
 
 .rgpd-inner a {
   color: var(--gold);
+}
+
+.rgpd-inner br {
+  display: block;
 }
