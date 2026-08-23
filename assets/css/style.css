@@ -1947,6 +1947,12 @@ footer {
 /* ============================================================
    PAGE RGPD
    ============================================================ */
+/* Page RGPD — désactiver fade-up, forcer visibilité */
+.page-rgpd .fade-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .rgpd-hero {
   padding-top: 120px;
   padding-bottom: 3rem;
