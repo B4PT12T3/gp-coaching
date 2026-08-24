@@ -1970,11 +1970,12 @@ footer {
   border-radius: var(--radius);
   border: 1px solid var(--navy-border);
   padding: 3rem;
+  color: var(--ink);
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
-.rgpd-inner {
-  color: var(--ink);
-}
 
 .rgpd-inner h2 {
   font-family: var(--serif);
