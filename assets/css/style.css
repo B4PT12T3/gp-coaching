@@ -535,7 +535,6 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   gap: 2.5rem;
 }
 
@@ -1085,6 +1084,7 @@ footer {
 }
 
 .methode-steps::before {
+  content: '';
   position: absolute;
   top: 27px;
   left: 10%;
@@ -1599,7 +1599,7 @@ footer {
 
   .nav-links,
   .nav-hamburger {
-    display: none;
+    display: flex;
   }
 
   .footer-nav {
@@ -1953,31 +1953,33 @@ footer {
   transform: none !important;
 }
 
-.rgpd-hero {
+.mentions-hero {
   padding-top: 120px;
   padding-bottom: 3rem;
   background: var(--bg-base);
 }
 
-.rgpd-content {
+.mentions-content {
   background: var(--bg-alt);
   padding: var(--section-py) var(--gutter);
 }
 
-.rgpd-inner {
+.mentions-inner {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   max-width: 780px;
   background: var(--bg-card);
   border-radius: var(--radius);
   border: 1px solid var(--navy-border);
   padding: 3rem;
-  color: var(--ink);
-  display: block;
-  visibility: visible;
-  opacity: 1;
 }
 
+.mentions-inner {
+  color: var(--ink);
+}
 
-.rgpd-inner h2 {
+.mentions-inner h2 {
   font-family: var(--serif);
   font-size: 1.3rem;
   font-weight: 400;
@@ -1990,17 +1992,17 @@ footer {
   opacity: 1;
 }
 
-.rgpd-inner h2:first-child {
+.mentions-inner h2:first-child {
   margin-top: 0;
 }
 
-.rgpd-inner h3 {
+.mentions-inner h3 {
   font-size: 1rem;
   color: var(--ink) !important;
   margin: 1.25rem 0 .5rem;
 }
 
-.rgpd-inner p {
+.mentions-inner p {
   color: var(--ink-60) !important;
   font-size: .9rem;
   line-height: 1.8;
@@ -2010,13 +2012,13 @@ footer {
   opacity: 1;
 }
 
-.rgpd-inner ul {
+.mentions-inner ul {
   margin-left: 1.5rem;
   margin-bottom: .75rem;
   display: block;
 }
 
-.rgpd-inner ul li {
+.mentions-inner ul li {
   color: var(--ink-60) !important;
   font-size: .9rem;
   line-height: 1.8;
@@ -2024,10 +2026,10 @@ footer {
   list-style: disc;
 }
 
-.rgpd-inner a {
+.mentions-inner a {
   color: var(--gold);
 }
 
-.rgpd-inner br {
+.mentions-inner br {
   display: block;
 }

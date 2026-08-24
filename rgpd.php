@@ -1,14 +1,14 @@
 <?php include 'includes/header.php'; ?>
 
-<section class="rgpd-hero">
+<section class="mentions-hero">
     <div class="container">
         <span class="label">Mentions légales & Confidentialité</span>
         <h1>Politique de confidentialité & RGPD</h1>
     </div>
 </section>
 
-<section class="rgpd-content">
-    <div class="container rgpd-inner">
+<section class="mentions-content">
+    <div class="container mentions-inner">
 
         <h2>1. Responsable du traitement</h2>
         <p>GP Coaching — Gilles Petitprez<br>
