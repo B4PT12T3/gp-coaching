@@ -20,7 +20,7 @@ $pages_meta = [
     'desc'  => 'Coach certifié à Béthune. J\'accompagne particuliers et dirigeants à retrouver clarté, équilibre et performance. Premier échange gratuit.',
   ],
   'approche.php'        => [
-    'title' => 'Mon Approche & ma Méthode GPACE — GP Coaching',
+    'title' => 'Mon Approche & la Méthode GPACE — GP Coaching',
     'desc'  => 'Découvrez la méthode GPACE de GP Coaching et la conviction qui guide chaque accompagnement : clarté, confiance, action durable.',
   ],
   'accompagnement.php'  => [
@@ -28,7 +28,7 @@ $pages_meta = [
     'desc'  => 'Trois univers d\'accompagnement pour particuliers et entreprises. Coaching individuel, leadership et programmes signature sur-mesure.',
   ],
   'contact.php'         => [
-    'title' => 'Contact — GP Coaching Béthune | 06 72 72 44 44',
+    'title' => 'Contact — GP Coaching | Béthune et Hauts-de-France',
     'desc'  => 'Contactez GP Coaching — Gilles. Coaching à Béthune et en visioconférence. Premier échange gratuit.',
   ],
 ];
