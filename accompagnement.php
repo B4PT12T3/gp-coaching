@@ -224,7 +224,7 @@ $univers = [
       <?php
       $etapes = [
         ['message-circle', 'Premier échange'],
-        ['search',         'Diagnostic personnalisé'],
+        ['search',         'Clarification de votre situation et de vos objectifs'],
         ['map',            'Choix du parcours adapté'],
         ['target',         'Accompagnement sur-mesure'],
         ['trending-up',    'Bilan & suivi dans la durée'],
