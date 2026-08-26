@@ -1604,6 +1604,10 @@ footer {
   }
 
   .nav-links,
+  .nav-social
+  {
+      display: none;
+    }
   .nav-hamburger {
     display: flex;
   }
