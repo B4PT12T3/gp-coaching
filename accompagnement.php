@@ -178,9 +178,12 @@ $univers = [
       ?>
         <div class="usf-grid <?= $layout ?> <?= $i > 0 ? 'usf-sous-sep' : '' ?> fade-up<?= $delay ?>">
 
-          <div class="usf-img hv-image">
+          <div class="usf-img hv-image lightbox-trigger"
+            onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)"
+            title="Cliquer pour agrandir">
             <img src="<?= htmlspecialchars($sp['image']) ?>"
               alt="<?= htmlspecialchars($sp['titre']) ?>" />
+            <div class="lightbox-hint"><i data-lucide="zoom-in"></i></div>
           </div>
 
           <div class="usf-content">
@@ -273,5 +276,42 @@ $univers = [
     </div>
   </div>
 </section>
+
+<!-- ══ LIGHTBOX ══ -->
+<div id="lightbox" onclick="closeLightbox()" style="
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,.92); cursor:zoom-out;
+  align-items:center; justify-content:center; padding:2rem;">
+  <button onclick="closeLightbox()" style="
+    position:absolute; top:1.5rem; right:1.5rem;
+    background:none; border:none; color:#fff; font-size:2rem;
+    cursor:pointer; line-height:1; opacity:.7; transition:opacity .2s"
+    onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7">✕</button>
+  <img id="lightbox-img" src="" alt="" style="
+    max-width:90vw; max-height:88vh;
+    object-fit:contain; border-radius:4px;
+    box-shadow:0 24px 80px rgba(0,0,0,.6);
+    cursor:default;" onclick="event.stopPropagation()" />
+</div>
+
+<script>
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 <?php include 'includes/footer.php'; ?>

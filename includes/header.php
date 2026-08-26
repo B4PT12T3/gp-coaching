@@ -20,7 +20,7 @@ $pages_meta = [
     'desc'  => 'Coach certifié à Béthune. J\'accompagne particuliers et dirigeants à retrouver clarté, équilibre et performance. Premier échange gratuit.',
   ],
   'approche.php'        => [
-    'title' => 'Mon Approche & la Méthode GPACE — GP Coaching',
+    'title' => 'Mon Approche & ma Méthode GPACE — GP Coaching',
     'desc'  => 'Découvrez la méthode GPACE de GP Coaching et la conviction qui guide chaque accompagnement : clarté, confiance, action durable.',
   ],
   'accompagnement.php'  => [
@@ -82,7 +82,7 @@ function nav_active(string $file): string
 
     <div class="nav-links">
       <a href="index.php" class="<?= nav_active('index.php') ?>">Accueil</a>
-      <a href="approche.php" class="<?= nav_active('approche.php') ?>">Mon Approche du coaching et la Méthode GPACE</a>
+      <a href="approche.php" class="<?= nav_active('approche.php') ?>">Mon Approche du coaching et ma Méthode GPACE</a>
       <a href="accompagnement.php" class="<?= nav_active('accompagnement.php') ?>">Comment je peux vous accompagner</a>
       <a href="contact.php" class="<?= nav_active('contact.php') ?>">Contact</a>
     </div>
@@ -97,7 +97,7 @@ function nav_active(string $file): string
   <div class="mobile-nav" id="mobile-nav">
     <button class="mobile-nav-close" id="mobile-nav-close">Fermer ✕</button>
     <a href="index.php">Accueil</a>
-    <a href="approche.php">Mon Approche du coaching et la Méthode GPACE</a>
+    <a href="approche.php">Mon Approche du coaching et ma Méthode GPACE</a>
     <a href="accompagnement.php">Comment je peux vous accompagner</a>
     <a href="contact.php">Contact</a>
     <button onclick="openBooking()">Prendre rendez-vous</button>
