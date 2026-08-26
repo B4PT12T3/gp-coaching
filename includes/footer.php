@@ -46,7 +46,7 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
 
     <div class="footer-nav">
       <a href="index.php">Accueil</a>
-      <a href="approche.php"> Mon approche du coaching et la Méthode GPACE</a>
+      <a href="approche.php"> Mon approche du coaching et ma Méthode GPACE</a>
       <a href="accompagnement.php">Accompagnement</a>
       <a href="contact.php">Contact</a>
     </div>

@@ -535,7 +535,6 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   gap: 2.5rem;
 }
 
@@ -1085,6 +1084,7 @@ footer {
 }
 
 .methode-steps::before {
+  content: '';
   position: absolute;
   top: 27px;
   left: 10%;
@@ -1174,6 +1174,7 @@ footer {
 /* Parcours */
 .parcours-section {
   background: var(--bg-base);
+  text-align: center;
 }
 
 .parcours-steps {
@@ -1189,8 +1190,12 @@ footer {
   flex: 1;
   min-width: 140px;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
 }
 
 .parcours-step::after {
@@ -1207,23 +1212,25 @@ footer {
 }
 
 .parcours-dot {
-  width: 42px;
-  height: 42px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: var(--bg-card);
   border: 1.5px solid var(--navy-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem;
-  font-size: 1rem;
-  transition: background .25s, border-color .25s, transform .25s var(--ease);
+  margin: 0 auto;
+  flex-shrink: 0;
+  transition: background .25s, border-color .25s, transform .25s var(--ease), box-shadow .25s;
+  overflow: visible;
 }
 
 .parcours-step:hover .parcours-dot {
   background: var(--navy);
   border-color: var(--navy);
   transform: scale(1.1);
+  box-shadow: 0 0 0 5px var(--bg-base), 0 0 0 6px var(--navy-border);
 }
 
 .parcours-step h4 {
@@ -1599,7 +1606,7 @@ footer {
 
   .nav-links,
   .nav-hamburger {
-    display: none;
+    display: flex;
   }
 
   .footer-nav {
@@ -1842,32 +1849,13 @@ footer {
 }
 
 /* ============================================================
-   PARCOURS ADAPTÉ — icônes blanches + hover navy + marges fix
+   PARCOURS ADAPTÉ — icônes blanches + hover navy
    ============================================================ */
-.parcours-dot {
-  width: 54px;
-  height: 54px;
-  padding: 4px;
-  overflow: visible;
-}
-
-.parcours-step {
-  padding: 0 1.25rem;
-}
-
 .parcours-dot .lucide {
   width: 22px;
   height: 22px;
   stroke: var(--navy);
   transition: stroke .25s;
-}
-
-.parcours-step:hover .parcours-dot {
-  background: var(--navy);
-  border-color: var(--navy);
-  transform: scale(1.1);
-  overflow: visible;
-  box-shadow: 0 0 0 6px var(--bg-base);
 }
 
 .parcours-step:hover .parcours-dot .lucide {
