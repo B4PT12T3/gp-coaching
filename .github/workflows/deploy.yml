@@ -23,3 +23,21 @@ jobs:
             **/node_modules/**
             **/*.md
             **/.vscode/**
+  deploy-prod:
+    if: github.ref == 'refs/heads/prod'
+    runs-on: ubuntu-latest
+    steps:
+      -uses: actions/checkout@v4
+      -name: Deploy -> gpcoaching.fr
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          server-dir: /gpcoaching.fr/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.md
+            **/.vscode/**
