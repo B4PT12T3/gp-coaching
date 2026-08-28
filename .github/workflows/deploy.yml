@@ -3,14 +3,24 @@ name: Deploy to LWS
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environnement cible"
+        required: true
+        default: "test"
+        type: choice
+        options:
+          - test
+          - prod
 
 jobs:
-  deploy:
+  deploy-test:
+    if: github.event_name == 'push' || inputs.environment == 'test'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Deploy via FTP
+      - uses: actions/checkout@v4
+      - name: Deploy → test.gpcoaching.fr
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -23,13 +33,13 @@ jobs:
             **/node_modules/**
             **/*.md
             **/.vscode/**
+
   deploy-prod:
-    if: github.ref == 'refs/heads/prod'
+    if: inputs.environment == 'prod'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Deploy -> gpcoaching.fr
+      - name: Deploy → gpcoaching.fr
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
