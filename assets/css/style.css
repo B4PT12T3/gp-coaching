@@ -281,17 +281,6 @@ section {
   border-color: var(--navy);
 }
 
-.btn-outline-gold {
-  background: transparent;
-  color: var(--gold);
-  border: 1.5px solid var(--gold-border);
-}
-
-.btn-outline-gold:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold);
-}
-
 /* ── LIEN FLÈCHE ── */
 .link-arrow {
   display: inline-flex;
@@ -331,14 +320,6 @@ section {
 
 .delay-3 {
   transition-delay: .3s;
-}
-
-.delay-4 {
-  transition-delay: .4s;
-}
-
-.delay-5 {
-  transition-delay: .5s;
 }
 
 /* ============================================================
@@ -857,22 +838,6 @@ footer {
   transform: scale(1.08);
 }
 
-/* Logo accordéon accompagnement */
-.ua-icon {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
-  background: none;
-  border: none;
-}
-
-.ua-icon img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  display: block;
-}
-
 /* Fallback si --u-color non défini */
 .univers-card h3 {
   color: var(--ink);
@@ -993,8 +958,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
   transition: background .25s, border-color .25s, transform .25s var(--ease);
+}
+
+.philo-icon .lucide {
+  width: 26px;
+  height: 26px;
 }
 
 .philo-step:hover .philo-icon {
@@ -1085,7 +1054,6 @@ footer {
 }
 
 .methode-steps::before {
-  content: '';
   position: absolute;
   top: 27px;
   left: 10%;
@@ -1540,10 +1508,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .service-full-card.img-left .service-img {
-    order: 0;
-  }
-
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1605,10 +1569,10 @@ footer {
   }
 
   .nav-links,
-  .nav-social
-  {
-      display: none;
-    }
+  .nav-social {
+    display: none;
+  }
+
   .nav-hamburger {
     display: flex;
   }
@@ -1714,7 +1678,7 @@ footer {
   border-radius: var(--radius);
 }
 
-.usf-img-badge {
+/* .usf-img-badge { L1717 — badge logo sur image univers
   position: absolute;
   bottom: -20px;
   right: -20px;
@@ -1723,7 +1687,7 @@ footer {
   padding: 8px;
   box-shadow: 0 4px 16px rgba(27, 43, 75, .15);
   border: 1px solid var(--navy-border);
-}
+} */
 
 .usf-label {
   display: block;
@@ -1840,19 +1804,6 @@ footer {
 }
 
 /* ============================================================
-   PHILOSOPHIE — icônes même taille que methode-dot (54px)
-   ============================================================ */
-.philo-icon {
-  width: 54px !important;
-  height: 54px !important;
-}
-
-.philo-icon .lucide {
-  width: 26px !important;
-  height: 26px !important;
-}
-
-/* ============================================================
    PARCOURS ADAPTÉ — icônes blanches + hover navy
    ============================================================ */
 .parcours-dot .lucide {
@@ -1960,15 +1911,12 @@ footer {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  color: var(--ink);
   max-width: 780px;
   background: var(--bg-card);
   border-radius: var(--radius);
   border: 1px solid var(--navy-border);
   padding: 3rem;
-}
-
-.mentions-inner {
-  color: var(--ink);
 }
 
 .mentions-inner h2 {
