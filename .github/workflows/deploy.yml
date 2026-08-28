@@ -3,6 +3,8 @@ name: Deploy to LWS
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 23 31 8 *"
   workflow_dispatch:
     inputs:
       environment:
@@ -35,7 +37,7 @@ jobs:
             **/.vscode/**
 
   deploy-prod:
-    if: inputs.environment == 'prod'
+    if: github.event_name == 'schedule' || inputs.environment == 'prod'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
