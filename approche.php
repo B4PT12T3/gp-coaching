@@ -70,16 +70,20 @@ include 'includes/header.php';
 <section style="background:var(--bg-base);padding:var(--section-py) var(--gutter)">
   <div class="container">
     <div class="mission-grid">
-      <div class="mission-card hv-lift fade-up">
-        <h4>Ma Mission</h4>
-        <h3 style="margin-bottom:1rem">Accompagner les personnes dans les périodes clés</h3>
-        <p><?= c('approche', 'mission_texte', "Accompagner les personnes, les entrepreneurs, les dirigeants et les organisations dans les périodes de transition, de développement ou de transformation pour leur permettre de retrouver clarté, équilibre et capacité d'action durable.") ?></p>
-      </div>
-      <div class="mission-card hv-lift fade-up delay-1">
-        <h4>Ma Conviction</h4>
-        <h3 style="margin-bottom:1rem">Les ressources sont déjà en vous</h3>
-        <p><?= c('approche', 'conviction_texte', "Chaque personne possède déjà en elle les ressources nécessaires pour évoluer. Mon rôle est de créer les conditions qui lui permettront de les révéler et de les mobiliser.") ?></p>
-      </div>
+      <?php if (content('approche', 'mission_texte', '')): ?>
+        <div class="mission-card hv-lift fade-up">
+          <h4>Ma Mission</h4>
+          <h3 style="margin-bottom:1rem">Accompagner les personnes dans les périodes clés</h3>
+          <p><?= c('approche', 'mission_texte', '') ?></p>
+        </div>
+      <?php endif; ?>
+      <?php if (content('approche', 'conviction_texte', '')): ?>
+        <div class="mission-card hv-lift fade-up delay-1">
+          <h4>Ma Conviction</h4>
+          <h3 style="margin-bottom:1rem">Les ressources sont déjà en vous</h3>
+          <p><?= c('approche', 'conviction_texte', '') ?></p>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 </section>

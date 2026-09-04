@@ -115,45 +115,53 @@ function old(string $key, array $data): string
         <h2>Mes coordonnées</h2>
         <div class="contact-info-list">
 
-          <div class="contact-info-item hv-border">
-            <div class="contact-info-icon"><i data-lucide="phone"></i></div>
-            <div class="contact-info-text">
-              <strong>
-                <a href="tel:+33<?= preg_replace('/\D/', '', c('contact', 'telephone', '0672724444')) ?>" style="color:inherit">
-                  <?= c('contact', 'telephone', '06 72 72 44 44') ?>
-                </a>
-              </strong>
-              <span>Du lundi au vendredi, 9h – 18h</span>
+          <?php if (content('contact', 'telephone', '')): ?>
+            <div class="contact-info-item hv-border">
+              <div class="contact-info-icon"><i data-lucide="phone"></i></div>
+              <div class="contact-info-text">
+                <strong>
+                  <a href="tel:+33<?= preg_replace('/\D/', '', c('contact', 'telephone', '')) ?>" style="color:inherit">
+                    <?= c('contact', 'telephone', '') ?>
+                  </a>
+                </strong>
+                <span>Du lundi au vendredi, 9h – 18h</span>
+              </div>
             </div>
-          </div>
+          <?php endif; ?>
 
-          <div class="contact-info-item hv-border">
-            <div class="contact-info-icon"><i data-lucide="mail"></i></div>
-            <div class="contact-info-text">
-              <strong>
-                <a href="mailto:<?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>" style="color:inherit">
-                  <?= c('contact', 'email', 'gilles@gpcoaching.fr') ?>
-                </a>
-              </strong>
-              <span>Réponse dans les plus brefs délais</span>
+          <?php if (content('contact', 'email', '')): ?>
+            <div class="contact-info-item hv-border">
+              <div class="contact-info-icon"><i data-lucide="mail"></i></div>
+              <div class="contact-info-text">
+                <strong>
+                  <a href="mailto:<?= c('contact', 'email', '') ?>" style="color:inherit">
+                    <?= c('contact', 'email', '') ?>
+                  </a>
+                </strong>
+                <span>Réponse dans les plus brefs délais</span>
+              </div>
             </div>
-          </div>
+          <?php endif; ?>
 
-          <div class="contact-info-item hv-border">
-            <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
-            <div class="contact-info-text">
-              <strong><?= c('contact', 'adresse', 'Béthune et sa région') ?></strong>
-              <span><?= c('contact', 'adresse_detail', 'Hauts-de-France') ?></span>
+          <?php if (content('contact', 'adresse', '')): ?>
+            <div class="contact-info-item hv-border">
+              <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
+              <div class="contact-info-text">
+                <strong><?= c('contact', 'adresse', '') ?></strong>
+                <span><?= c('contact', 'adresse_detail', '') ?></span>
+              </div>
             </div>
-          </div>
+          <?php endif; ?>
 
-          <div class="contact-info-item hv-border">
-            <div class="contact-info-icon"><i data-lucide="video"></i></div>
-            <div class="contact-info-text">
-              <strong><?= c('contact', 'modalites', 'En présentiel et en visioconférence') ?></strong>
-              <span><?= c('contact', 'modalites_detail', 'Partout en France') ?></span>
+          <?php if (content('contact', 'modalites', '')): ?>
+            <div class="contact-info-item hv-border">
+              <div class="contact-info-icon"><i data-lucide="video"></i></div>
+              <div class="contact-info-text">
+                <strong><?= c('contact', 'modalites', '') ?></strong>
+                <span><?= c('contact', 'modalites_detail', '') ?></span>
+              </div>
             </div>
-          </div>
+          <?php endif; ?>
 
         </div>
       </div>
