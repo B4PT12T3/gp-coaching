@@ -1,209 +1,95 @@
 <?php
 session_start();
-define('BASE_URL', '../../');
-require_once __DIR__ . '/../admin/includes/auth.php';
-require_once __DIR__ . '/../admin/includes/db.php';
-require_once __DIR__ . '/../admin/includes/save.php';
+define('BASE_URL', '../');
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/header.php';
 
-$page   = 'accueil';
-$msg    = '';
-$errors = [];
-
-$fields = [
-  'hero_titre'       => ['type' => 'textarea', 'label' => 'Titre hero'],
-  'hero_sous_titre'  => ['type' => 'textarea', 'label' => 'Sous-titre hero'],
-  'hero_image'       => ['type' => 'image',    'label' => 'Image hero'],
-  'citation_texte'   => ['type' => 'textarea', 'label' => 'Citation'],
-  'citation_auteur'  => ['type' => 'text',     'label' => 'Auteur citation'],
-  'mea_image'        => ['type' => 'image',    'label' => 'Section mise en avant — Image'],
-  'mea_titre'        => ['type' => 'textarea', 'label' => 'Section mise en avant — Titre'],
-  'mea_texte'        => ['type' => 'textarea', 'label' => 'Section mise en avant — Texte'],
-  'univers1_titre'   => ['type' => 'text',     'label' => 'Univers 1 — Titre'],
-  'univers1_texte'   => ['type' => 'textarea', 'label' => 'Univers 1 — Texte'],
-  'univers1_image'   => ['type' => 'image',    'label' => 'Univers 1 — Image'],
-  'univers2_titre'   => ['type' => 'text',     'label' => 'Univers 2 — Titre'],
-  'univers2_texte'   => ['type' => 'textarea', 'label' => 'Univers 2 — Texte'],
-  'univers2_image'   => ['type' => 'image',    'label' => 'Univers 2 — Image'],
-  'univers3_titre'   => ['type' => 'text',     'label' => 'Univers 3 — Titre'],
-  'univers3_texte'   => ['type' => 'textarea', 'label' => 'Univers 3 — Texte'],
-  'univers3_image'   => ['type' => 'image',    'label' => 'Univers 3 — Image'],
-];
-
-// Sauvegarde
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  csrf_check();
-  $errors = save_fields($page, $fields);
-  $msg    = empty($errors) ? 'success' : 'error';
-}
-
-// Lecture valeurs actuelles
-$rows = db()->query("SELECT cle, valeur FROM gp_content WHERE page = '$page'")->fetchAll();
-$vals = array_column($rows, 'valeur', 'cle');
-
-require_once __DIR__ . '/../admin/includes/header.php';
+// Dernières modifications
+$recent = db()->query("
+    SELECT page, cle, label, updated_at
+    FROM gp_content
+    ORDER BY updated_at DESC
+    LIMIT 8
+")->fetchAll();
 ?>
 
-<h1 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.5rem">
-  Page Accueil
+<h1 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1.5rem">
+  Tableau de bord
 </h1>
 
-<?php if ($msg === 'success'): ?>
-  <div class="alert alert-success">✓ Modifications enregistrées avec succès.</div>
-<?php elseif ($msg === 'error'): ?>
-  <div class="alert alert-error">
-    <?php foreach ($errors as $e): ?>
-      <div><?= htmlspecialchars($e) ?></div>
-    <?php endforeach; ?>
+<div class="tiles">
+  <a class="tile" href="pages/accueil.php">
+    <span class="tile-icon">⌂</span>
+    <span class="tile-label">Page</span>
+    <span class="tile-title">Accueil</span>
+    <span class="tile-desc">Hero, citation, mise en avant, 3 univers</span>
+  </a>
+  <a class="tile" href="pages/approche.php">
+    <span class="tile-icon">◎</span>
+    <span class="tile-label">Page</span>
+    <span class="tile-title">Mon Approche</span>
+    <span class="tile-desc">Photo coach, parcours, mission, conviction</span>
+  </a>
+  <a class="tile" href="pages/accompagnement.php">
+    <span class="tile-icon">◇</span>
+    <span class="tile-label">Page</span>
+    <span class="tile-title">Accompagnement</span>
+    <span class="tile-desc">Section intro, 3 univers et leurs parcours</span>
+  </a>
+  <a class="tile" href="pages/contact.php">
+    <span class="tile-icon">✉</span>
+    <span class="tile-label">Page</span>
+    <span class="tile-title">Contact & Coordonnées</span>
+    <span class="tile-desc">Téléphone, email, adresse, photo cabinet</span>
+  </a>
+  <a class="tile" href="pages/global.php">
+    <span class="tile-icon">◈</span>
+    <span class="tile-label">Global</span>
+    <span class="tile-title">Réseaux & Paramètres</span>
+    <span class="tile-desc">LinkedIn, Calendly, copyright</span>
+  </a>
+  <a class="tile" href="pages/rgpd.php">
+    <span class="tile-icon">⚖</span>
+    <span class="tile-label">Legal</span>
+    <span class="tile-title">RGPD & Confidentialité</span>
+    <span class="tile-desc">Politique de confidentialité</span>
+  </a>
+</div>
+
+<?php if (!empty($recent)): ?>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-header-icon">◷</span>
+      <h2>Dernières modifications</h2>
+    </div>
+    <div class="card-body" style="padding:0">
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+        <thead>
+          <tr style="background:var(--bg);border-bottom:1px solid var(--ink-20)">
+            <th style="padding:.65rem 1.25rem;text-align:left;font-weight:600;color:var(--ink-60);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase">Champ</th>
+            <th style="padding:.65rem 1.25rem;text-align:left;font-weight:600;color:var(--ink-60);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase">Page</th>
+            <th style="padding:.65rem 1.25rem;text-align:left;font-weight:600;color:var(--ink-60);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase">Modifié le</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($recent as $r): ?>
+            <tr style="border-bottom:1px solid var(--ink-20)">
+              <td style="padding:.65rem 1.25rem;color:var(--ink)"><?= htmlspecialchars($r['label'] ?: $r['cle']) ?></td>
+              <td style="padding:.65rem 1.25rem">
+                <span style="background:var(--gold-dim);color:var(--gold);font-size:.68rem;padding:.15rem .5rem;border-radius:3px;font-weight:600;text-transform:uppercase;letter-spacing:.06em">
+                  <?= htmlspecialchars($r['page']) ?>
+                </span>
+              </td>
+              <td style="padding:.65rem 1.25rem;color:var(--ink-60)">
+                <?= date('d/m/Y à H:i', strtotime($r['updated_at'])) ?>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 <?php endif; ?>
 
-<form method="POST" enctype="multipart/form-data">
-  <?= csrf_field() ?>
-
-  <!-- MISE EN AVANT -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-header-icon">◈</span>
-      <h2>Section mise en avant</h2>
-    </div>
-    <div class="card-body">
-      <div class="field">
-        <label>Titre</label>
-        <textarea name="mea_titre" rows="2"><?= htmlspecialchars($vals['mea_titre'] ?? 'Une approche structurée pour passer de la réflexion à l\'action') ?></textarea>
-      </div>
-      <div class="field">
-        <label>Texte</label>
-        <textarea name="mea_texte" rows="3"><?= htmlspecialchars($vals['mea_texte'] ?? 'Prendre du recul, clarifier vos priorités, identifier vos leviers d\'action et avancer avec justesse.') ?></textarea>
-      </div>
-      <?php $img = $vals['mea_image'] ?? ''; ?>
-      <div class="field">
-        <label>Image</label>
-        <?php if ($img): ?>
-          <img src="<?= htmlspecialchars(BASE_URL . $img) ?>" class="img-preview" onerror="this.style.display='none'" />
-        <?php endif; ?>
-        <div class="img-upload-zone" onclick="this.querySelector('input').click()">
-          <input type="file" name="mea_image" accept="image/*" />
-          <label><strong>Choisir une image</strong> — JPG, PNG, WebP max 5 Mo</label>
-        </div>
-        <div class="field" style="margin-top:.75rem;margin-bottom:0">
-          <label>Ou URL</label>
-          <input type="url" name="mea_image_url" placeholder="https://..." />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-header-icon">⌂</span>
-      <h2>Section Hero</h2>
-    </div>
-    <div class="card-body">
-      <div class="field">
-        <label>Titre hero</label>
-        <textarea name="hero_titre" rows="2"><?= htmlspecialchars($vals['hero_titre'] ?? '') ?></textarea>
-      </div>
-      <div class="field">
-        <label>Sous-titre hero</label>
-        <textarea name="hero_sous_titre" rows="3"><?= htmlspecialchars($vals['hero_sous_titre'] ?? '') ?></textarea>
-      </div>
-      <?php $img = $vals['hero_image'] ?? ''; ?>
-      <div class="field">
-        <label>Image hero</label>
-        <?php if ($img): ?>
-          <img src="<?= htmlspecialchars(BASE_URL . $img) ?>" class="img-preview" onerror="this.style.display='none'" />
-        <?php endif; ?>
-        <div class="img-upload-zone" onclick="this.querySelector('input').click()">
-          <input type="file" name="hero_image" accept="image/*"
-            onchange="previewImg(this, '<?= $img ? 'prev_hero' : '' ?>')" />
-          <label>
-            <strong>Choisir un fichier</strong> ou glisser-déposer<br>
-            <span style="font-size:.72rem">JPG, PNG, WebP — max 5 Mo</span>
-          </label>
-        </div>
-        <div class="field" style="margin-top:.75rem;margin-bottom:0">
-          <label>Ou coller une URL d'image</label>
-          <input type="url" name="hero_image_url" placeholder="https://..." value="" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CITATION -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-header-icon">❝</span>
-      <h2>Citation</h2>
-    </div>
-    <div class="card-body">
-      <div class="field">
-        <label>Texte de la citation</label>
-        <textarea name="citation_texte" rows="2"><?= htmlspecialchars($vals['citation_texte'] ?? '') ?></textarea>
-      </div>
-      <div class="field">
-        <label>Auteur</label>
-        <input type="text" name="citation_auteur" value="<?= htmlspecialchars($vals['citation_auteur'] ?? '') ?>" />
-      </div>
-    </div>
-  </div>
-
-  <!-- UNIVERS -->
-  <?php foreach ([1, 2, 3] as $n):
-    $labels = [1 => 'Équilibre & Développement personnel', 2 => 'Leadership & Performance', 3 => 'Signature'];
-    $img_key = "univers{$n}_image";
-    $img_val = $vals[$img_key] ?? '';
-  ?>
-    <div class="card">
-      <div class="card-header">
-        <span class="card-header-icon"><?= ['◇', '◈', '⭐'][$n - 1] ?></span>
-        <h2>Univers <?= $n ?> — <?= $labels[$n] ?></h2>
-      </div>
-      <div class="card-body">
-        <div class="field">
-          <label>Titre</label>
-          <input type="text" name="univers<?= $n ?>_titre"
-            value="<?= htmlspecialchars($vals["univers{$n}_titre"] ?? '') ?>" />
-        </div>
-        <div class="field">
-          <label>Texte</label>
-          <textarea name="univers<?= $n ?>_texte" rows="3"><?= htmlspecialchars($vals["univers{$n}_texte"] ?? '') ?></textarea>
-        </div>
-        <div class="field">
-          <label>Image</label>
-          <?php if ($img_val): ?>
-            <img src="<?= htmlspecialchars(BASE_URL . $img_val) ?>" class="img-preview" onerror="this.style.display='none'" />
-          <?php endif; ?>
-          <div class="img-upload-zone" onclick="this.querySelector('input').click()">
-            <input type="file" name="<?= $img_key ?>" accept="image/*" />
-            <label><strong>Choisir un fichier</strong> — JPG, PNG, WebP max 5 Mo</label>
-          </div>
-          <div class="field" style="margin-top:.75rem;margin-bottom:0">
-            <label>Ou URL d'image</label>
-            <input type="url" name="<?= $img_key ?>_url" placeholder="https://..." />
-          </div>
-        </div>
-      </div>
-    </div>
-  <?php endforeach; ?>
-
-  <div class="form-actions">
-    <button type="submit" class="btn btn-navy">Enregistrer les modifications</button>
-    <a href="<?= BASE_URL ?>index.php" target="_blank" class="btn btn-ghost">↗ Voir la page</a>
-  </div>
-</form>
-
-<script>
-  function previewImg(input, previewId) {
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = e => {
-        const prev = input.closest('.field').querySelector('.img-preview');
-        if (prev) prev.src = e.target.result;
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
-
-<?php require_once __DIR__ . '/..//admin/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
