@@ -11,6 +11,9 @@ define('DB_NAME', 'gpcoa2829021');       // ← ex: client_gpcoaching
 define('DB_USER', 'gpcoa2829021');      // ← identifiant MySQL LWS
 define('DB_PASS', 'bZ4-meuFqUhSxSY');  // ← mot de passe MySQL LWS
 define('DB_CHARSET', 'utf8mb4');
+// Préfixe de table selon l'environnement
+$_host = $_SERVER['HTTP_HOST'] ?? '';
+define('DB_PREFIX', str_contains($_host, 'test.gpcoaching') ? 'test_' : 'gp_');
 
 function db(): PDO
 {
