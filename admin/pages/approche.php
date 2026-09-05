@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $msg     = empty($errors) ? 'success' : 'error';
 }
 
-$rows = db()->query("SELECT cle, valeur FROM gp_content WHERE page = '$page'")->fetchAll();
+$rows = db()->query("SELECT cle, valeur FROM " . DB_PREFIX . "content WHERE page = '$page'")->fetchAll();
 $vals = array_column($rows, 'valeur', 'cle');
 
 require_once __DIR__ . '/../includes/header.php';

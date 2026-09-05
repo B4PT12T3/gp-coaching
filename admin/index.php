@@ -8,7 +8,7 @@ require_once __DIR__ . '/includes/header.php';
 // Dernières modifications
 $recent = db()->query("
     SELECT page, cle, label, updated_at
-    FROM gp_content
+    FROM " . DB_PREFIX . "content
     ORDER BY updated_at DESC
     LIMIT 8
 ")->fetchAll();

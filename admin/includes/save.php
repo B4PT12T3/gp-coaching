@@ -12,7 +12,7 @@ function save_fields(string $page, array $fields): array
     $pdo    = db();
 
     $stmt = $pdo->prepare("
-        INSERT INTO gp_content (page, cle, valeur, type, label)
+        INSERT INTO " . DB_PREFIX . "content (page, cle, valeur, type, label)
         VALUES (?, ?, ?, ?, ?)
         ON DUPLICATE KEY UPDATE valeur = VALUES(valeur), updated_at = CURRENT_TIMESTAMP
     ");
@@ -61,7 +61,7 @@ function save_fields_count(string $page, array $fields): array
     $pdo     = db();
 
     $stmt = $pdo->prepare("
-        INSERT INTO gp_content (page, cle, valeur, type, label)
+        INSERT INTO " . DB_PREFIX . "content (page, cle, valeur, type, label)
         VALUES (?, ?, ?, ?, ?)
         ON DUPLICATE KEY UPDATE valeur = VALUES(valeur), updated_at = CURRENT_TIMESTAMP
     ");

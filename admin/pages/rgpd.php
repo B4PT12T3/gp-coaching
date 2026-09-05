@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Pour le contenu RGPD on accepte le HTML — on bypasse strip_tags
     if (!empty($_POST['contenu'])) {
         $stmt = db()->prepare("
-            INSERT INTO gp_content (page, cle, valeur, type, label)
+            INSERT INTO " . DB_PREFIX . "content (page, cle, valeur, type, label)
             VALUES (?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE valeur = VALUES(valeur), updated_at = CURRENT_TIMESTAMP
         ");
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $msg    = empty($errors) ? 'success' : 'error';
 }
 
-$rows = db()->query("SELECT cle, valeur FROM gp_content WHERE page = 'rgpd'")->fetchAll();
+$rows = db()->query("SELECT cle, valeur FROM " . DB_PREFIX . "content WHERE page = 'rgpd'")->fetchAll();
 $vals = array_column($rows, 'valeur', 'cle');
 
 require_once __DIR__ . '/../includes/header.php';

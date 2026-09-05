@@ -10,21 +10,21 @@ $msg    = '';
 $errors = [];
 
 $fields = [
-    'social_linkedin'  => ['type' => 'text', 'label' => 'URL LinkedIn'],
-    'social_facebook'  => ['type' => 'text', 'label' => 'URL Facebook'],
-    'social_instagram' => ['type' => 'text', 'label' => 'URL Instagram'],
-    'social_youtube'   => ['type' => 'text', 'label' => 'URL YouTube'],
-    'footer_copyright' => ['type' => 'text', 'label' => 'Texte copyright footer'],
-    'calendly_url'     => ['type' => 'text', 'label' => 'Lien Calendly'],
+  'social_linkedin'  => ['type' => 'text', 'label' => 'URL LinkedIn'],
+  'social_facebook'  => ['type' => 'text', 'label' => 'URL Facebook'],
+  'social_instagram' => ['type' => 'text', 'label' => 'URL Instagram'],
+  'social_youtube'   => ['type' => 'text', 'label' => 'URL YouTube'],
+  'footer_copyright' => ['type' => 'text', 'label' => 'Texte copyright footer'],
+  'calendly_url'     => ['type' => 'text', 'label' => 'Lien Calendly'],
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_check();
-    $errors = save_fields($page, $fields);
-    $msg    = empty($errors) ? 'success' : 'error';
+  csrf_check();
+  $errors = save_fields($page, $fields);
+  $msg    = empty($errors) ? 'success' : 'error';
 }
 
-$rows = db()->query("SELECT cle, valeur FROM gp_content WHERE page = 'global'")->fetchAll();
+$rows = db()->query("SELECT cle, valeur FROM " . DB_PREFIX . "content WHERE page = 'global'")->fetchAll();
 $vals = array_column($rows, 'valeur', 'cle');
 
 require_once __DIR__ . '/../includes/header.php';
@@ -58,32 +58,32 @@ require_once __DIR__ . '/../includes/header.php';
       <div class="field">
         <label>LinkedIn — URL complète</label>
         <input type="url" name="social_linkedin"
-               value="<?= htmlspecialchars($vals['social_linkedin'] ?? '') ?>"
-               placeholder="https://linkedin.com/in/gilles-..."/>
+          value="<?= htmlspecialchars($vals['social_linkedin'] ?? '') ?>"
+          placeholder="https://linkedin.com/in/gilles-..." />
         <span class="field-hint">Ex : https://www.linkedin.com/in/votre-profil</span>
       </div>
 
       <div class="field">
         <label>Facebook — URL complète</label>
         <input type="url" name="social_facebook"
-               value="<?= htmlspecialchars($vals['social_facebook'] ?? '') ?>"
-               placeholder="https://facebook.com/gpcoaching"/>
+          value="<?= htmlspecialchars($vals['social_facebook'] ?? '') ?>"
+          placeholder="https://facebook.com/gpcoaching" />
         <span class="field-hint">Ex : https://www.facebook.com/votre-page</span>
       </div>
 
       <div class="field">
         <label>Instagram — URL complète</label>
         <input type="url" name="social_instagram"
-               value="<?= htmlspecialchars($vals['social_instagram'] ?? '') ?>"
-               placeholder="https://instagram.com/gpcoaching"/>
+          value="<?= htmlspecialchars($vals['social_instagram'] ?? '') ?>"
+          placeholder="https://instagram.com/gpcoaching" />
         <span class="field-hint">Ex : https://www.instagram.com/votre-compte</span>
       </div>
 
       <div class="field">
         <label>YouTube — URL complète</label>
         <input type="url" name="social_youtube"
-               value="<?= htmlspecialchars($vals['social_youtube'] ?? '') ?>"
-               placeholder="https://youtube.com/@gpcoaching"/>
+          value="<?= htmlspecialchars($vals['social_youtube'] ?? '') ?>"
+          placeholder="https://youtube.com/@gpcoaching" />
         <span class="field-hint">Ex : https://www.youtube.com/@votre-chaine</span>
       </div>
 
@@ -100,8 +100,8 @@ require_once __DIR__ . '/../includes/header.php';
       <div class="field">
         <label>URL Calendly</label>
         <input type="url" name="calendly_url"
-               value="<?= htmlspecialchars($vals['calendly_url'] ?? 'https://calendly.com/') ?>"
-               placeholder="https://calendly.com/gilles-gpcoaching/30min"/>
+          value="<?= htmlspecialchars($vals['calendly_url'] ?? 'https://calendly.com/') ?>"
+          placeholder="https://calendly.com/gilles-gpcoaching/30min" />
         <span class="field-hint">
           Ce lien est utilisé par tous les boutons "Prendre rendez-vous" du site.
         </span>
@@ -124,7 +124,7 @@ require_once __DIR__ . '/../includes/header.php';
       <div class="field">
         <label>Texte copyright (après l'année)</label>
         <input type="text" name="footer_copyright"
-               value="<?= htmlspecialchars($vals['footer_copyright'] ?? 'GP Coaching · Béthune et sa région · Tous droits réservés') ?>"/>
+          value="<?= htmlspecialchars($vals['footer_copyright'] ?? 'GP Coaching · Béthune et sa région · Tous droits réservés') ?>" />
         <span class="field-hint">L'année © est ajoutée automatiquement devant.</span>
       </div>
     </div>
