@@ -9,7 +9,7 @@
 define('DB_HOST', '91.216.107.219');
 define('DB_NAME', 'gpcoa2829021');       // ← ex: client_gpcoaching
 define('DB_USER', 'gpcoa2829021');      // ← identifiant MySQL LWS
-define('DB_PASS', 'z3kddohblw');  // ← mot de passe MySQL LWS
+define('DB_PASS', 'bZ4-meuFqUhSxSY');  // ← mot de passe MySQL LWS
 define('DB_CHARSET', 'utf8mb4');
 
 function db(): PDO
