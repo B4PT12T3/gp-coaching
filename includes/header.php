@@ -64,6 +64,10 @@ function nav_active(string $file): string
 
 <body class="page-<?= str_replace('.php', '', $current) ?>">
 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GPFXK2R"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- ══ NAV ══ -->
   <nav id="main-nav">
     <a class="nav-brand" href="<?= BASE_URL ?>index.php">
