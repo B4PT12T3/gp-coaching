@@ -25,6 +25,27 @@ foreach (array_keys($admin_nav) as $key) {
 <!DOCTYPE html>
 <html lang="fr">
 
+<!-- Google Analytics — chargé uniquement après consentement -->
+<script>
+  function loadGA() {
+    if (localStorage.getItem('cookies_consent') === 'accepted') {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5GPFXK2R';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    }
+  }
+  loadGA();
+</script>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
