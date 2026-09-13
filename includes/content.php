@@ -7,13 +7,6 @@
 
 require_once __DIR__ . '/../admin/includes/db.php';
 
-/**
- * Récupère une valeur de contenu depuis la BDD
- *
- * @param string $page     Ex: 'accueil', 'approche', 'contact'
- * @param string $key      Ex: 'hero_titre', 'hero_sous_titre'
- * @param string $default  Valeur affichée si la clé n'existe pas en BDD
- */
 function content(string $page, string $key, string $default = ''): string
 {
     static $cache = [];
@@ -23,9 +16,13 @@ function content(string $page, string $key, string $default = ''): string
         return $cache[$cache_key];
     }
 
+    if (!defined('DB_PREFIX')) {
+        return $default;
+    }
+
     try {
         $stmt = db()->prepare(
-            'SELECT valeur FROM " . DB_PREFIX . "content WHERE page = ? AND cle = ? LIMIT 1'
+            'SELECT valeur FROM ' . DB_PREFIX . 'content WHERE page = ? AND cle = ? LIMIT 1'
         );
         $stmt->execute([$page, $key]);
         $row = $stmt->fetch();
@@ -38,20 +35,33 @@ function content(string $page, string $key, string $default = ''): string
     return $value;
 }
 
-/**
- * Même chose mais avec htmlspecialchars() appliqué (pour les textes dans le HTML)
- */
 function c(string $page, string $key, string $default = ''): string
 {
     return htmlspecialchars(content($page, $key, $default), ENT_QUOTES, 'UTF-8');
 }
 
-/**
- * Pour les images : retourne l'URL (peut être Unsplash ou assets/images/)
- */
 function img(string $page, string $key, string $default_url = '', string $alt = ''): string
 {
     $src = content($page, $key, $default_url);
+
+    if ($src === '') {
+        $src = $default_url;
+    }
+
+    // Chemin relatif → absolu
+    if ($src !== '' && !str_starts_with($src, 'http') && !str_starts_with($src, '/')) {
+        $src = '/' . $src;
+    }
+
+    // Cache busting sur les images locales
+    if (str_starts_with($src, '/assets/images/')) {
+        $file_path = $_SERVER['DOCUMENT_ROOT'] . $src;
+        $mtime     = @filemtime($file_path);
+        if ($mtime) {
+            $src .= '?v=' . $mtime;
+        }
+    }
+
     $alt_safe = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
     $src_safe = htmlspecialchars($src, ENT_QUOTES, 'UTF-8');
     return '<img src="' . $src_safe . '" alt="' . $alt_safe . '"/>';
