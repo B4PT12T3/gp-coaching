@@ -88,8 +88,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 body {
@@ -97,8 +95,7 @@ body {
   background: var(--bg-base);
   color: var(--ink);
   line-height: 1.65;
-  overflow-x: hidden;
-  max-width: 100%;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
