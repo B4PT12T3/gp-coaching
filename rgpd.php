@@ -31,10 +31,10 @@ $default_contenu = "<h2>1. Responsable du traitement</h2>
 
 <section class="mentions-content">
     <div class="container mentions-inner">
-        <button onclick="localStorage.removeItem('gp_visitor_pref');alert('Vos préférences ont été réinitialisées. La bannière réapparaîtra à votre prochaine visite.');" style="background:#1B2B4B;color:#fff;border:none;padding:.6rem 1.25rem;border-radius:4px;cursor:pointer;font-size:.85rem">
-            Retirer mon consentement
-        </button>
+        <h2>Google Analytics</h2>
+        <p>Ce site utilise Google Analytics, un service d'analyse d'audience fourni par Google LLC. Google Analytics utilise des cookies pour collecter des informations anonymes sur la façon dont vous utilisez ce site (pages visitées, durée de visite, etc.).</p>
+        <p>Google Analytics n'est activé qu'après votre consentement explicite. Vous pouvez retirer votre consentement à tout moment en cliquant sur le bouton ci-dessous.</p>
+        <p><button onclick="refuseCookies();localStorage.removeItem('gp_visitor_pref');alert('Préférences réinitialisées.')" style="background:#1B2B4B;color:#fff;border:none;padding:.6rem 1.25rem;border-radius:4px;cursor:pointer;font-size:.85rem">Retirer mon consentement</button></p>
+        <p>Pour plus d'informations sur la façon dont Google traite vos données, consultez la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialité de Google</a>.</p>
     </div>
-</section>
-
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
