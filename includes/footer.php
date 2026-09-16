@@ -94,9 +94,10 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
 <div id="cookie-banner" style="
   display:none;
   position:fixed; bottom:0; left:0; right:0; z-index:9998;
-  background:var(--navy);
+  background:#1B2B4B;
   border-top:1px solid rgba(255,255,255,.1);
   padding:1rem 2rem;
+  flex-direction:row;
   align-items:center; justify-content:space-between;
   gap:1.5rem; flex-wrap:wrap;
   font-family:var(--sans); font-size:.82rem;
