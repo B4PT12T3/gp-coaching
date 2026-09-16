@@ -29,7 +29,12 @@ $default_contenu = "<h2>1. Responsable du traitement</h2>
     </div>
 </section>
 
-<button onclick="localStorage.removeItem('gp_visitor_pref');alert('Vos préférences ont été réinitialisées. La bannière réapparaîtra à votre prochaine visite.');" style="background:#1B2B4B;color:#fff;border:none;padding:.6rem 1.25rem;border-radius:4px;cursor:pointer;font-size:.85rem">
-    Retirer mon consentement
-</button>
+<section class="mentions-content">
+    <div class="container mentions-inner">
+        <button onclick="localStorage.removeItem('gp_visitor_pref');alert('Vos préférences ont été réinitialisées. La bannière réapparaîtra à votre prochaine visite.');" style="background:#1B2B4B;color:#fff;border:none;padding:.6rem 1.25rem;border-radius:4px;cursor:pointer;font-size:.85rem">
+            Retirer mon consentement
+        </button>
+    </div>
+</section>
+
 <?php include 'includes/footer.php'; ?>
