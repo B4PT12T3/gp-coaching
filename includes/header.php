@@ -66,7 +66,7 @@ function nav_active(string $file): string
 
   <!-- Google Tag Manager -->
   <script>
-    if (localStorage.getItem('cookies_consent') === 'accepted') {
+    if (localStorage.getItem('gp_visitor_pref') === 'accepted') {
       (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({

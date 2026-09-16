@@ -91,7 +91,7 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
 
 <!-- ══ BANNIÈRE COOKIES ══ -->
 <?php if (basename($_SERVER['PHP_SELF']) !== 'rgpd.php'): ?>
-<div id="cookie-banner" style="
+<div id="gp-notice" style="
   display:none;
   position:fixed; bottom:0; left:0; right:0; z-index:9998;
   background:#1B2B4B;
@@ -113,20 +113,20 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
 </div>
 <script>
 (function() {
-  var consent = localStorage.getItem('cookies_consent');
+  var consent = localStorage.getItem('gp_visitor_pref');
   if (!consent) {
-    var banner = document.getElementById('cookie-banner');
+    var banner = document.getElementById('gp-notice');
     if (banner) banner.style.display = 'flex';
   }
 })();
 function acceptCookies() {
-  localStorage.setItem('cookies_consent', 'accepted');
-  document.getElementById('cookie-banner').style.display = 'none';
+  localStorage.setItem('gp_visitor_pref', 'accepted');
+  document.getElementById('gp-notice').style.display = 'none';
   location.reload();
 }
 function refuseCookies() {
-  localStorage.setItem('cookies_consent', 'refused');
-  document.getElementById('cookie-banner').style.display = 'none';
+  localStorage.setItem('gp_visitor_pref', 'refused');
+  document.getElementById('gp-notice').style.display = 'none';
 }
 </script>
 <?php endif; ?>
