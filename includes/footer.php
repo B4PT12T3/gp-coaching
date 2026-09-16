@@ -88,6 +88,47 @@ $copyright = in_array($current_page, ['index.php', 'accompagnement.php']) ? $cop
     if (typeof lucide !== 'undefined') lucide.createIcons();
   });
 </script>
+
+<!-- ══ BANNIÈRE COOKIES ══ -->
+<?php if (basename($_SERVER['PHP_SELF']) !== 'rgpd.php'): ?>
+<div id="cookie-banner" style="
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:9998;
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:1rem 2rem;
+  align-items:center; justify-content:space-between;
+  gap:1.5rem; flex-wrap:wrap;
+  font-family:var(--sans); font-size:.82rem;
+  box-shadow:0 -4px 24px rgba(0,0,0,.2);">
+  <p style="color:rgba(255,255,255,.75);margin:0;flex:1;min-width:200px">
+    Ce site utilise Google Analytics pour mesurer son audience.
+    <a href="<?= BASE_URL ?>rgpd.php" style="color:var(--gold);text-decoration:underline">En savoir plus</a>
+  </p>
+  <div style="display:flex;gap:.75rem;flex-shrink:0">
+    <button onclick="acceptCookies()" style="background:var(--gold);color:#fff;border:none;padding:.5rem 1.25rem;border-radius:4px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">Accepter</button>
+    <button onclick="refuseCookies()" style="background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);padding:.5rem 1.25rem;border-radius:4px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">Refuser</button>
+  </div>
+</div>
+<script>
+(function() {
+  var consent = localStorage.getItem('cookies_consent');
+  if (!consent) {
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'flex';
+  }
+})();
+function acceptCookies() {
+  localStorage.setItem('cookies_consent', 'accepted');
+  document.getElementById('cookie-banner').style.display = 'none';
+  location.reload();
+}
+function refuseCookies() {
+  localStorage.setItem('cookies_consent', 'refused');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+</script>
+<?php endif; ?>
 </body>
 
 </html>
