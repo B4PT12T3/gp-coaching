@@ -41,7 +41,7 @@ foreach (array_keys($admin_nav) as $key) {
       j.src =
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-T9MLXGHQ');
+    })(window, document, 'script', 'dataLayer', 'GTM-5MRRFB88');
   }
 </script>
 <!-- End Google Tag Manager -->
